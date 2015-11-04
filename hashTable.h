@@ -14,6 +14,4 @@ class hashTable
 
     private:
         int tableSize;
-        
-
 };
