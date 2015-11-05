@@ -61,7 +61,8 @@ void fileHandle(char* fileName) {
   
   while(in >> x) {
     x = tokenize(x);
-    cout << x << " ";
+	if(x != "")
+		cout << x << " ";
   }
   
 }
@@ -81,6 +82,10 @@ string tokenize(string str) {
 	// find next delimiter (i.e., end of first token)
 	int tokenEnd = str.find_first_not_of(valid, tokenStart);
 
+	// if tokenstart == -1, no valid chars were found in the input string
+	if (tokenStart == -1) {
+		return "";
+	}
 	// since tokenEnd will return a -1 if no invalid char is found
 	// we need to change it to the length of the string
 	if (tokenEnd == -1) {
