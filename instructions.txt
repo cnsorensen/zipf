@@ -3,7 +3,7 @@ This is just me informally writing down what we need to do.
 Create hashtable of 1K (prime value)
 Create hash function, open addressing with linear probing
 Read in text file
-Parse ASCII chars into words (strtok()) 
+xParse ASCII chars into words (strtok()) 
 Take out punctuations except for embedded single quotes
 Read in words
 For each word
