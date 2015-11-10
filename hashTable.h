@@ -7,6 +7,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
 
 //class declaration
 class hashTable
@@ -47,11 +49,7 @@ class hashTable
 		tableItem *table = nullptr;
         int tableSize = 0, distinct = 0, words = 0;
 		int fullSize = 1352;
-<<<<<<< HEAD
-        static int compareFreq( const void*, const void* );
-=======
-	        //int comp(tableItem *p1, tableitem *p2);
->>>>>>> 8ce893cb1e03cfdbe008cbf3b369c387797d5477
+		friend int freqcomp(tableItem *e1, tableItem *e2); // <-- accidently did this, and it works now..
 };
 
 #endif

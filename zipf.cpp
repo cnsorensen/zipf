@@ -78,7 +78,7 @@ void fileHandle(char* fileName, hashTable &h) {
   h.sort();
   cout << "finished! (not yet..)\n";
   cout << "Elapsed time = 'this doesnt work yet..'\n";
-  h.printStats(fileName);
+  //h.printStats(fileName);
 }
 
 /** 

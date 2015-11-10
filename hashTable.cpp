@@ -1,6 +1,4 @@
 /* hashTable.cpp */
-#include <stdio.h>
-#include <stdlib.h>
 #include "hashTable.h"
 
 hashTable :: hashTable()
@@ -16,7 +14,7 @@ hashTable :: hashTable()
 
 hashTable :: ~hashTable()
 {
-	delete[] table;
+	//delete[] table;
 }
 
 //pretty sure this method wont work, but lets try anyway..
@@ -72,27 +70,19 @@ bool hashTable::insert(std::string s) {
 	return true;
 }
 
-<<<<<<< HEAD
-int hashTable::compareFreq( const void* p1, const void* p2 )
-{
-    return( (*(tableItem**)p1)->freq - (*(tableItem**)p2)->freq );
-=======
-int freq_sort(const void *p1, const void *p2) {
-  hashTable::tableItem *e1 = *(hashTable::tableItem**) p1;
-  hashTable::tableItem *e2 = *(hashTable::tableItem**) p2;
-  return (e2->freq - e1->freq);
-}
-
-
-void hashTable::sort() {
-	// nope... nothing yet :(
-	//clambda = []{ ( (const void*) a, (const void*) b ){ return( *(int*) b.freq - *(int*) a.freq ); };
-  std::qsort(&table[0], fullSize, sizeof(tableItem*), freq_sort );	
->>>>>>> 8ce893cb1e03cfdbe008cbf3b369c387797d5477
+/**
+ * I don't know how this works now... it didnt work earlier, yet it
+ * decides to work now.. little trolls fixed bugs or something,
+ * unexplainable how this works now. -lucas
+**/
+int freqcomp(const void * a, const void *b) {
+	hashTable::tableItem *ia = (hashTable::tableItem *)a;
+	hashTable::tableItem *ib = (hashTable::tableItem *)b;
+	return (int)(ib->freq - ia->freq);
 }
 
 void hashTable::sort() {
-    std::qsort( table, tableSize, sizeof(tableItem*), compareFreq ); 	
+	qsort(table, fullSize, sizeof(tableItem), freqcomp);
 }
 
 
@@ -122,5 +112,3 @@ int hashTable::getDistinct() {
 int hashTable::getSize() {
 	return fullSize;
 }
-
-
