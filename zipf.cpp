@@ -5,19 +5,20 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
-//#include "hashTable.h"
+#include "hashTable.h"
 
 using namespace std;
 
 /**
  * Global Variables
 **/
-const char* valid = "abcdefghijklmnopqrstuvwxyz'";
+const char* valid = "abcdefghijklmnopqrstuvwxyz";
+const char* valid2 = "abcdefghijklmnopqrstuvwxyz'";
 
 /**
  * Prototypes
 **/
-void fileHandle(char* fileName);
+void fileHandle(char* fileName, hashTable &h);
 string tokenize(string str);
 
 /**
@@ -31,25 +32,26 @@ string tokenize(string str);
 **/
 int main(int argc, char*argv[])
 {
-  switch(argc) {
-    //if 2 args, pass to file handling and continue program
-    case 2:
-      fileHandle(argv[1]);
-    break;
+	hashTable h;
+    switch(argc) {
+		//if 2 args, pass to file handling and continue program
+		case 2:
+			fileHandle(argv[1], h);
+		break;
 
-    //if more or less than 2 args print out usage statement
-    default: 
-    cout << "Usage: zipf filename\n";
-    return 1;
-  }
-  return 0;
+		//if more or less than 2 args print out usage statement
+		default: 
+			cout << "Usage: zipf filename\n";
+			return 1;
+	}
+	return 0;
 }
 
 /**
  * fileHandle, reads in a file and passes each word of the file
  * onto a tokenize function and inserts the word into a hashtable
 **/
-void fileHandle(char* fileName) {
+void fileHandle(char* fileName, hashTable &h) {
   ifstream in;
   in.open(fileName, ios::in);
   if (!in) {
@@ -61,10 +63,22 @@ void fileHandle(char* fileName) {
   
   while(in >> x) {
     x = tokenize(x);
-	if(x != "")
-		cout << x << " ";
+	// we would add into a hash table here.. 
+	// should only need to add in, in the insert function for 
+	// our hash table it should be able to handle everything else
+	if (x != "" && !h.insert(x)) {
+		cout << "Unable to insert " << x << " into hashtable. Exiting program\n";
+		return;
+	}
   }
-  
+  cout << "Finished generating a hash table of size " << h.getSize() << ".\n";
+  cout << "Read " << h.getWords() << " words from the file " << fileName << ".\n";
+  cout << "Inserted " << h.getDistinct() << " distinct words into the hash table.\n";
+  cout << "Compacting and sorting the hash table ... ";
+  h.sort();
+  cout << "finished! (not yet..)\n";
+  cout << "Elapsed time = 'this doesnt work yet..'\n";
+  h.printStats(fileName);
 }
 
 /** 
@@ -80,7 +94,7 @@ string tokenize(string str) {
 	// skip delimiters to start of first token
 	int tokenStart = str.find_first_of(valid, 0);
 	// find next delimiter (i.e., end of first token)
-	int tokenEnd = str.find_first_not_of(valid, tokenStart);
+	int tokenEnd = str.find_first_not_of(valid2, tokenStart);
 
 	// if tokenstart == -1, no valid chars were found in the input string
 	if (tokenStart == -1) {
@@ -94,8 +108,8 @@ string tokenize(string str) {
 	// remove beginning ' or end ' 
 	if (str[tokenEnd-1] == '\'')
 		tokenEnd--;
-	if (str[tokenStart] == '\'')
-		tokenStart++;
+	//if (str[tokenStart] == '\'')
+		//tokenStart++;
 
 	// substring our word from tokenStart to tokenEnd
 	str = str.substr(tokenStart, (tokenEnd - tokenStart));
