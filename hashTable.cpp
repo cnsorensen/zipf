@@ -72,12 +72,17 @@ bool hashTable::insert(std::string s) {
 	return true;
 }
 
+int freq_sort(const void *p1, const void *p2) {
+  hashTable::tableItem *e1 = *(hashTable::tableItem**) p1;
+  hashTable::tableItem *e2 = *(hashTable::tableItem**) p2;
+  return (e2->freq - e1->freq);
+}
+
+
 void hashTable::sort() {
 	// nope... nothing yet :(
 	//clambda = []{ ( (const void*) a, (const void*) b ){ return( *(int*) b.freq - *(int*) a.freq ); };
-    std::qsort( table, fullSize, sizeof(int), 
-        [] (tableItem a, tableItem b) { return ( b.freq - a.freq ); } 
-    ); 	
+  std::qsort(&table[0], fullSize, sizeof(tableItem*), freq_sort );	
 }
 
 
@@ -109,3 +114,5 @@ int hashTable::getDistinct() {
 int hashTable::getSize() {
 	return fullSize;
 }
+
+

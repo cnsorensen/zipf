@@ -17,15 +17,20 @@ class hashTable
         // destructor
         ~hashTable();
     
-		void resize(int newSize);
-		bool insert(std::string s);
-		void sort();
-		void printStats(std::string file);
-		int getWords();
-		int getDistinct();
-		int getSize();
+	void resize(int newSize);
+	bool insert(std::string s);
+	void sort();
+	void printStats(std::string file);
+	int getWords();
+	int getDistinct();
+	int getSize();
         //delete
         //find
+	
+	struct tableItem {
+	  std::string word = "";
+	  int freq = -1;
+	};
 
     private:
 		/**
@@ -36,13 +41,11 @@ class hashTable
 		 * or something similar, not sure yet.. will have to evaluate more, but the
 		 * key can be upgraded later to see if more efficient.
 		**/
-		struct tableItem {
-			std::string word = "";
-			int freq = -1;
-		};
+		
 		tableItem *table = nullptr;
         int tableSize = 0, distinct = 0, words = 0;
 		int fullSize = 1352;
+	        //int comp(tableItem *p1, tableitem *p2);
 };
 
 #endif
