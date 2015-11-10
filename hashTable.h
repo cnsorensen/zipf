@@ -36,11 +36,12 @@ class hashTable
             int freq;       
         };
 
+        hashItem* table;
 
     private:
         int tableSize;
         int tableFilled;
-        hashItem* table;
+//        hashItem* table;
 };
 
 

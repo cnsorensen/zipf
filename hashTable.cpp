@@ -37,7 +37,7 @@ hashTable :: hashTable( const hashTable& h ) : tableSize( h.tableSize )
 // destructor
 hashTable :: ~hashTable()
 {
-    delete table;
+//    delete table;
 }
 
 // insert
@@ -75,6 +75,16 @@ bool hashTable :: insertItem( const string& newWord )
 // delete
 bool hashTable :: deleteItem( const string& newWord )
 {
+    int index;
+    index = findItem( newWord );
+    
+    if( index )
+    {
+        table[index].freq = -1;
+        table[index].word = "";
+        return true;
+    }
+
     return true;
 }
 
