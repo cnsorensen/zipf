@@ -27,6 +27,8 @@ class hashTable
         //delete
         //find
 
+        //friend int compare( const void*, const void* );
+
     private:
 		/**
 		 * maybe if we store it as a struct, we can make an array of structs
@@ -43,6 +45,7 @@ class hashTable
 		tableItem *table = nullptr;
         int tableSize = 0, distinct = 0, words = 0;
 		int fullSize = 1352;
+        static int compareFreq( const void*, const void* );
 };
 
 #endif
