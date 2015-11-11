@@ -156,5 +156,5 @@ void hashTable::printHashTable()
 {
     for( int i = 0; i < fullSize; i++ )
         if( table[i].freq != -1 )
-            std::cout << i << table[i].word << " " << table[i].freq << "\n";
+            std::cout << table[i].word << " " << table[i].freq << "\n";
 }
