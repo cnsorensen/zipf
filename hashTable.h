@@ -23,11 +23,13 @@ class hashTable
 	bool insert(std::string s);
 	void sort();
 	void printStats(std::string file);
-	int getWords();
-	int getDistinct();
+	int getNumWords();
+	int getNumDistinct();
 	int getSize();
         //delete
         //find
+    void printHashTable();
+    
 	
 	struct tableItem {
 	  std::string word = "";
@@ -47,9 +49,11 @@ class hashTable
 		**/
 		
 		tableItem *table = nullptr;
-        int tableSize = 0, distinct = 0, words = 0;
+        int tableSize = 0, numDistinct = 0, numWords = 0;
 		int fullSize = 1352;
 		friend int freqcomp(tableItem *e1, tableItem *e2); // <-- accidently did this, and it works now..
+        friend int wordcomp(tableItem *e1, tableItem *e2);
+        friend int findEnd( int, const hashTable* );
 };
 
 #endif

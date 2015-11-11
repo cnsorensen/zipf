@@ -62,11 +62,11 @@ bool hashTable::insert(std::string s) {
 	if (table[currKey].word != s) {
 		table[currKey].word = s;
 		tableSize++;
-		distinct++;
+		numDistinct++;
 	    table[currKey].freq++;
     }
 	table[currKey].freq++;
-	words++;
+	numWords++;
 	return true;
 }
 
@@ -74,17 +74,56 @@ bool hashTable::insert(std::string s) {
  * I don't know how this works now... it didnt work earlier, yet it
  * decides to work now.. little trolls fixed bugs or something,
  * unexplainable how this works now. -lucas
+ *
+ * It's been working for me. I even used your format for the word compare
+ * (see below) I haven't seen any errors. -cs
 **/
-int freqcomp(const void * a, const void *b) {
+int freqcomp(const void *a, const void *b) {
 	hashTable::tableItem *ia = (hashTable::tableItem *)a;
 	hashTable::tableItem *ib = (hashTable::tableItem *)b;
 	return (int)(ib->freq - ia->freq);
 }
 
-void hashTable::sort() {
-	qsort(table, fullSize, sizeof(tableItem), freqcomp);
+int wordcomp(const void *a, const void *b){
+    hashTable::tableItem *ia = (hashTable::tableItem *)a;
+    hashTable::tableItem *ib = (hashTable::tableItem *)b;
+    return ia->word.compare(ib -> word ); 
 }
 
+int findEnd( int index, const hashTable* h )
+{
+    int length = 0;
+
+    // Base case: hit the end of the line of similar frequencies
+    if( h->table[index].freq != h->table[index+1].freq )
+    {    
+        return 0;
+    }
+
+    // Add one more to the number of words with the same frequency
+    length += findEnd( index + 1, h ) + 1;
+    return length;
+}
+
+void hashTable::sort()
+{
+    // Sort by the frequency values
+	qsort(table, fullSize, sizeof(tableItem), freqcomp);
+    
+    // Sort alphabetically within the frequency values
+    for( int i = 0; i < tableSize; i++ )
+    {
+        // Compare with the following word
+        if( table[i].freq == table[i+1].freq )
+        {
+            // If they have the same frequency, find the number of words with
+            // that frequency. Sort only those in the table
+            int length = findEnd( i, this );
+            qsort( table + i, length, sizeof( tableItem ), wordcomp );
+            i += length;
+        }  
+    }    
+}
 
 void hashTable::printStats(std::string file) {
 	std::ofstream out;
@@ -94,21 +133,28 @@ void hashTable::printStats(std::string file) {
 	std::string wrdFile = file.substr(0, ext)+".wrd";
 	out.open(wrdFile, std::ios::out | std::ios::trunc);
 	out << "\nZipf's Law\n----------\nFile: " << file;
-	out << "\nTotal number of words = " << words;
+	out << "\nTotal number of words = " << numWords;
 	out << "\n\nWord Frequencies\t\t\tRanks\tAvg Rank";
 	out << "\n----------------\t\t\t-----\t--------";
 	out << "\n\n";
 	out.close();
 }
 
-int hashTable::getWords() {
-	return words;
+int hashTable::getNumWords() {
+	return numWords;
 }
 
-int hashTable::getDistinct() {
-	return distinct;
+int hashTable::getNumDistinct() {
+	return numDistinct;
 }
 
 int hashTable::getSize() {
 	return fullSize;
+}
+
+void hashTable::printHashTable()
+{
+    for( int i = 0; i < fullSize; i++ )
+        if( table[i].freq != -1 )
+            std::cout << i << table[i].word << " " << table[i].freq << "\n";
 }

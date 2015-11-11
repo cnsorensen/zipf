@@ -52,33 +52,35 @@ int main(int argc, char*argv[])
  * onto a tokenize function and inserts the word into a hashtable
 **/
 void fileHandle(char* fileName, hashTable &h) {
-  ifstream in;
-  in.open(fileName, ios::in);
-  if (!in) {
-	  cout << "Unable to open " << fileName << ". Exiting program.\n";
-	  return;
-  }
+    ifstream in;
+    in.open(fileName, ios::in);
+    if (!in) {
+	    cout << "Unable to open " << fileName << ". Exiting program.\n";
+	    return;
+    }
 
-  string x;
+    string x;
   
-  while(in >> x) {
-    x = tokenize(x);
-	// we would add into a hash table here.. 
-	// should only need to add in, in the insert function for 
-	// our hash table it should be able to handle everything else
-	if (x != "" && !h.insert(x)) {
-		cout << "Unable to insert " << x << " into hashtable. Exiting program\n";
-		return;
-	}
-  }
-  cout << "Finished generating a hash table of size " << h.getSize() << ".\n";
-  cout << "Read " << h.getWords() << " words from the file " << fileName << ".\n";
-  cout << "Inserted " << h.getDistinct() << " distinct words into the hash table.\n";
-  cout << "Compacting and sorting the hash table ... ";
-  h.sort();
-  cout << "finished! (not yet..)\n";
-  cout << "Elapsed time = 'this doesnt work yet..'\n";
-  //h.printStats(fileName);
+    while(in >> x) {
+        x = tokenize(x);
+	    // we would add into a hash table here.. 
+	    // should only need to add in, in the insert function for 
+	    // our hash table it should be able to handle everything else
+	    if (x != "" && !h.insert(x)) {
+		    cout << "Unable to insert " << x << " into hashtable. Exiting program\n";
+		    return;
+	    }
+    }
+    cout << "Finished generating a hash table of size " << h.getSize() << ".\n";
+    cout << "Read " << h.getNumWords() << " words from the file " << fileName << ".\n";
+    cout << "Inserted " << h.getNumDistinct() << " distinct words into the hash table.\n";
+    cout << "Compacting and sorting the hash table ... ";
+    h.sort();
+    cout << "finished! (not yet..)\n";
+    cout << "Elapsed time = 'this doesnt work yet..'\n";
+
+    // Print out hash table to the screen  
+    h.printHashTable();
 }
 
 /** 
