@@ -3,7 +3,22 @@ Zipf's Law
 ----------
 File: bunyip.txt
 Total number of words = 692
+Number of distinct words = 232
 
-Word Frequencies			Ranks	Avg Rank
-----------------			-----	--------
+Word Frequencies                             Ranks     Avg Rank
+----------------                             -----     --------
 
+Words occurring 58 times:                        1
+Words occurring 30 times:                        1
+Words occurring 17 times:                        1
+Words occurring 14 times:                        1
+Words occurring 11 times:                        1
+Words occurring 10 times:                        1
+Words occurring 9 times:                         1
+Words occurring 7 times:                         1
+Words occurring 6 times:                         1
+Words occurring 5 times:                         1
+Words occurring 4 times:                         1
+Words occurring 3 times:                         1
+Words occurring 2 times:                         1
+Words occurring 1 times:                         1

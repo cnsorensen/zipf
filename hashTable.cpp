@@ -3,11 +3,11 @@
 
 hashTable :: hashTable()
 {
-	std::cout << "Generating a hash table of size " << fullSize << ".\n";
+	cout << "Generating a hash table of size " << fullSize << ".\n";
 	// Initialize hashtable to size tableSize and check for proper allocation
 	table = new tableItem[fullSize];
 	if (table == nullptr) { 
-		std::cout << "Unable to allocate space for hash table.\n";
+		cout << "Unable to allocate space for hash table.\n";
 		exit(1); // exit with an error
 	}
 }
@@ -19,10 +19,10 @@ hashTable :: ~hashTable()
 
 //pretty sure this method wont work, but lets try anyway..
 void hashTable::resize(int newSize) {
-	std::cout << "Rehashing to size " << newSize << " ... ";
+	cout << "Rehashing to size " << newSize << " ... ";
 	tableItem *newTable = new tableItem[newSize];
 	if (newTable == nullptr) {
-		std::cout << "Unable to resize hashtable to size " << newSize << ". Exiting program.\n";
+		cout << "Unable to resize hashtable to size " << newSize << ". Exiting program.\n";
 		exit(1);
 	}
 	for (int i = 0; i < fullSize; i++) {
@@ -43,12 +43,12 @@ void hashTable::resize(int newSize) {
 		table[i].freq = newTable[i].freq;
 	}
 	delete[] newTable;
-	std::cout << "finished!\n";
+	cout << "finished!\n";
 }
 
-bool hashTable::insert(std::string s) {
+bool hashTable::insert(string s) {
 	if (tableSize == (fullSize)) {
-		std::cout << "WARNING: Hash table (size " << fullSize << ") is 75% full!\n";
+		cout << "WARNING: Hash table (size " << fullSize << ") is 75% full!\n";
 		resize(fullSize * 2);
 	}
 	int startKey = ((s[0]-97) * (fullSize / 26)); 
@@ -125,18 +125,48 @@ void hashTable::sort()
     }    
 }
 
-void hashTable::printStats(std::string file) {
-	std::ofstream out;
+void hashTable::printStats(string file) {
+	ofstream out;
 	int ext = file.find_last_of('.');
 	if (ext == -1)
 		ext = file.length();
-	std::string wrdFile = file.substr(0, ext)+".wrd";
-	out.open(wrdFile, std::ios::out | std::ios::trunc);
+	string wrdFile = file.substr(0, ext)+".wrd";
+	out.open(wrdFile, ios::out | ios::trunc);
 	out << "\nZipf's Law\n----------\nFile: " << file;
 	out << "\nTotal number of words = " << numWords;
-	out << "\n\nWord Frequencies\t\t\tRanks\tAvg Rank";
+	out << "\nNumber of distinct words = " << numDistinct << "\n\n";
+	/*out << "\n\nWord Frequencies\t\t\tRanks\tAvg Rank";
 	out << "\n----------------\t\t\t-----\t--------";
+	out << "\n\n";*/
+	//29 spaces between s and r, 5 spaces between s and a
+	out << "Word Frequencies"<< setw(47) << "Ranks     Avg Rank";
+	out << "\n";
+	out << "----------------"<< setw(47) << "-----     --------";
 	out << "\n\n";
+	int i = 0, numWords, curFreq, digits = 0, temp = 0, rank = 1;
+	string *words;
+	while(table[i].freq != -1) {
+	  numWords = digits = temp = 0;
+	  curFreq = table[i].freq;
+	  words = new string[numDistinct]; // distinct becuz worst case is they all occur once or something.
+
+	  temp = curFreq/10;
+	  while(temp != 0) {
+	    if(temp > 0)
+	      digits++;
+	    temp = temp/10;
+	  }
+	  cout << "Dig: " << digits << "\n";
+	  out << "Words occurring " <<curFreq<< " times:" << setw((26-digits)) << rank;
+	  out << "\n";
+	  while(table[i].freq == curFreq) {
+	    words[numWords] = table[i].word;
+	    
+	    numWords++;
+	    i++;
+	  }
+	  i++;
+	}
 	out.close();
 }
 
@@ -156,5 +186,5 @@ void hashTable::printHashTable()
 {
     for( int i = 0; i < fullSize; i++ )
         if( table[i].freq != -1 )
-            std::cout << table[i].word << " " << table[i].freq << "\n";
+            cout << table[i].word << " " << table[i].freq << "\n";
 }

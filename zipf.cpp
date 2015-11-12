@@ -81,6 +81,7 @@ void fileHandle(char* fileName, hashTable &h) {
 
     // Print out hash table to the screen  
     h.printHashTable();
+    h.printStats(fileName);
 }
 
 /** 

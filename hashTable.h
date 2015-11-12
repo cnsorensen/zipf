@@ -7,8 +7,9 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <stdio.h>
-#include <stdlib.h>
+#include <iomanip>
+
+using namespace std;
 
 //class declaration
 class hashTable
