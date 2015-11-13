@@ -8,85 +8,856 @@ Number of distinct words = 2776
 Word Frequencies                             Ranks     Avg Rank
 ----------------                             -----     --------
 
-Words occurring 1535 times:                      1
-Words occurring 629 times:                       1
-Words occurring 504 times:                       1
-Words occurring 427 times:                       1
-Words occurring 386 times:                       1
-Words occurring 365 times:                       1
-Words occurring 357 times:                       1
-Words occurring 262 times:                       1
-Words occurring 235 times:                       1
-Words occurring 193 times:                       1
-Words occurring 178 times:                       1
-Words occurring 166 times:                       1
-Words occurring 153 times:                       1
-Words occurring 144 times:                       1
-Words occurring 128 times:                       1
-Words occurring 120 times:                       1
-Words occurring 108 times:                       1
-Words occurring 102 times:                       1
-Words occurring 95 times:                        1
-Words occurring 93 times:                        1
-Words occurring 91 times:                        1
-Words occurring 88 times:                        1
-Words occurring 83 times:                        1
-Words occurring 82 times:                        1
-Words occurring 80 times:                        1
-Words occurring 77 times:                        1
-Words occurring 75 times:                        1
-Words occurring 73 times:                        1
-Words occurring 67 times:                        1
-Words occurring 63 times:                        1
-Words occurring 62 times:                        1
-Words occurring 60 times:                        1
-Words occurring 58 times:                        1
-Words occurring 57 times:                        1
-Words occurring 55 times:                        1
-Words occurring 53 times:                        1
-Words occurring 51 times:                        1
-Words occurring 49 times:                        1
-Words occurring 48 times:                        1
-Words occurring 46 times:                        1
-Words occurring 45 times:                        1
-Words occurring 43 times:                        1
-Words occurring 42 times:                        1
-Words occurring 41 times:                        1
-Words occurring 40 times:                        1
-Words occurring 39 times:                        1
-Words occurring 38 times:                        1
-Words occurring 36 times:                        1
-Words occurring 35 times:                        1
-Words occurring 34 times:                        1
-Words occurring 32 times:                        1
-Words occurring 31 times:                        1
-Words occurring 30 times:                        1
-Words occurring 29 times:                        1
-Words occurring 28 times:                        1
-Words occurring 27 times:                        1
-Words occurring 26 times:                        1
-Words occurring 25 times:                        1
-Words occurring 24 times:                        1
-Words occurring 23 times:                        1
-Words occurring 22 times:                        1
-Words occurring 21 times:                        1
-Words occurring 20 times:                        1
-Words occurring 19 times:                        1
-Words occurring 18 times:                        1
-Words occurring 17 times:                        1
-Words occurring 16 times:                        1
-Words occurring 15 times:                        1
-Words occurring 14 times:                        1
-Words occurring 13 times:                        1
-Words occurring 12 times:                        1
-Words occurring 11 times:                        1
-Words occurring 10 times:                        1
-Words occurring 9 times:                         1
-Words occurring 8 times:                         1
-Words occurring 7 times:                         1
-Words occurring 6 times:                         1
-Words occurring 5 times:                         1
-Words occurring 4 times:                         1
-Words occurring 3 times:                         1
-Words occurring 2 times:                         1
-Words occurring 1 times:                         1
+Words occurring 1535 times:                      1          1.0
+the           
+
+Words occurring 848 times:                       2          2.0
+and           
+
+Words occurring 629 times:                       3          3.0
+a             
+
+Words occurring 508 times:                       4          4.0
+of            
+
+Words occurring 504 times:                       5          5.0
+she           
+
+Words occurring 491 times:                       6          6.0
+to            
+
+Words occurring 427 times:                       7          7.0
+said          
+
+Words occurring 403 times:                       8          8.0
+i             
+
+Words occurring 386 times:                       9          9.0
+alice         
+
+Words occurring 366 times:                      10         10.0
+in            
+
+Words occurring 365 times:                      11         11.0
+it            
+
+Words occurring 364 times:                      12         12.0
+you           
+
+Words occurring 357 times:                      13         13.0
+was           
+
+Words occurring 265 times:                      14         14.0
+that          
+
+Words occurring 262 times:                      15         15.0
+as            
+
+Words occurring 247 times:                      16         16.0
+her           
+
+Words occurring 235 times:                      17         17.0
+to            
+
+Words occurring 210 times:                      18         18.0
+at            
+
+Words occurring 193 times:                      19         19.0
+on            
+
+Words occurring 180 times:                      20         20.0
+all           
+
+Words occurring 178 times:                      21         21.0
+had           
+
+Words occurring 167 times:                      22         22.0
+with          
+
+Words occurring 166 times:                      23         23.0
+but           
+
+Words occurring 163 times:                      24         24.0
+it            
+
+Words occurring 153 times:                      25         25.0
+for           
+
+Words occurring 147 times:                      26         26.0
+be            
+
+Words occurring 144 times:                   27-28         27.5
+so            very          
+
+Words occurring 136 times:                      29         29.0
+what          
+
+Words occurring 128 times:                   30-31         30.5
+little        this          
+
+Words occurring 123 times:                      32         32.0
+they          
+
+Words occurring 120 times:                      33         33.0
+he            
+
+Words occurring 116 times:                      34         34.0
+out           
+
+Words occurring 108 times:                      35         35.0
+is            
+
+Words occurring 102 times:                   36-38         37.0
+down          not           one           
+
+Words occurring 96 times:                       39         39.0
+his           
+
+Words occurring 95 times:                       40         40.0
+if            
+
+Words occurring 94 times:                       41         41.0
+about         
+
+Words occurring 93 times:                       42         42.0
+the           
+
+Words occurring 92 times:                       43         43.0
+up            
+
+Words occurring 91 times:                       44         44.0
+then          
+
+Words occurring 88 times:                    45-46         45.5
+know          them          
+
+Words occurring 85 times:                       47         47.0
+like          
+
+Words occurring 83 times:                    48-50         49.0
+again         herself       went          
+
+Words occurring 82 times:                    51-52         51.5
+were          would         
+
+Words occurring 81 times:                       53         53.0
+do            
+
+Words occurring 80 times:                       54         54.0
+have          
+
+Words occurring 79 times:                       55         55.0
+when          
+
+Words occurring 77 times:                       56         56.0
+could         
+
+Words occurring 75 times:                    57-58         57.5
+or            there         
+
+Words occurring 74 times:                       59         59.0
+thought       
+
+Words occurring 73 times:                       60         60.0
+off           
+
+Words occurring 68 times:                       61         61.0
+me            
+
+Words occurring 67 times:                       62         62.0
+into          
+
+Words occurring 64 times:                       63         63.0
+how           
+
+Words occurring 63 times:                    64-65         64.5
+see           time          
+
+Words occurring 62 times:                    66-67         66.5
+did           your          
+
+Words occurring 61 times:                       68         68.0
+king          
+
+Words occurring 60 times:                    69-71         70.0
+don't         queen         well          
+
+Words occurring 58 times:                    72-73         72.5
+began         by            
+
+Words occurring 57 times:                    74-76         75.0
+an            i'm           its           
+
+Words occurring 56 times:                       77         77.0
+mock          
+
+Words occurring 55 times:                    78-81         79.5
+gryphon       hatter        it's          quite         
+
+Words occurring 53 times:                    82-83         82.5
+are           think         
+
+Words occurring 52 times:                       84         84.0
+no            
+
+Words occurring 51 times:                    85-89         87.0
+first         just          much          say           way           
+
+Words occurring 50 times:                       90         90.0
+go            
+
+Words occurring 49 times:                    91-95         93.0
+head          here          more          only          which         
+
+Words occurring 48 times:                    96-97         96.5
+voice         who           
+
+Words occurring 47 times:                       98         98.0
+rabbit        
+
+Words occurring 46 times:                   99-100         99.5
+come          get           
+
+Words occurring 45 times:                  101-103        102.0
+got           looked        their         
+
+Words occurring 43 times:                  104-106        105.0
+him           mouse         some          
+
+Words occurring 42 times:                  107-108        107.5
+after         my            
+
+Words occurring 41 times:                  109-110        109.5
+round         such          
+
+Words occurring 40 times:                  111-114        112.5
+came          not           other         over          
+
+Words occurring 39 times:                  115-118        116.5
+any           back          dormouse      great         
+
+Words occurring 38 times:                  119-121        120.0
+been          duchess       oh            
+
+Words occurring 37 times:                      122        122.0
+before        
+
+Words occurring 36 times:                  123-124        123.5
+from          two           
+
+Words occurring 35 times:                  125-130        127.5
+can           cat           no            said          tone          
+why           
+
+Words occurring 34 times:                  131-134        132.5
+i've          march         thing         turtle        
+
+Words occurring 33 times:                      135        135.0
+large         
+
+Words occurring 32 times:                  136-143        139.5
+found         last          long          nothing       now           
+once          right         she           
+
+Words occurring 31 times:                  144-146        145.0
+hare          looking       will          
+
+Words occurring 30 times:                  147-154        150.5
+door          heard         i'll          made          never         
+tell          that's        white         
+
+Words occurring 29 times:                  155-161        158.0
+dear          eyes          look          moment        must          
+replied       we            
+
+Words occurring 28 times:                  162-164        163.0
+can't         might         things        
+
+Words occurring 27 times:                  165-169        167.0
+caterpillar   going         good          seemed        three         
+
+Words occurring 26 times:                  170-175        172.5
+day           make          poor          too           upon          
+without       
+
+Words occurring 25 times:                  176-182        179.0
+away          course        now           rather        shall         
+soon          yet           
+
+Words occurring 24 times:                  183-186        184.5
+should        took          while         won't         
+
+Words occurring 23 times:                  187-190        188.5
+added         felt          turtle        you're        
+
+Words occurring 22 times:                  191-197        194.0
+another       getting       half          jury          next          
+put           than          
+
+Words occurring 21 times:                  198-203        200.5
+ever          find          minute        take          wish          
+words         
+
+Words occurring 20 times:                  204-208        206.0
+cried         hand          however       sort          there's       
+
+Words occurring 19 times:                  209-217        213.0
+anything      being         curious       even          feet          
+old           please        till          tried         
+
+Words occurring 18 times:                  218-225        221.5
+court         eat           enough        house         soup          
+table         use           wonder        
+
+Words occurring 17 times:                  226-233        229.5
+asked         end           let           perhaps       question      
+side          spoke         talking       
+
+Words occurring 16 times:                  234-244        239.0
+bit           doesn't       garden        hastily       indeed        
+my            ran           same          tea           turned        
+under         
+
+Words occurring 15 times:                  245-257        251.0
+am            because       called        done          face          
+gave          high          idea          low           mad           
+must          sure          thing         
+
+Words occurring 14 times:                  258-274        266.0
+air           anxiously     arm           better        both          
+certainly     change        didn't        hear          itself        
+knew          ought         remember      saying        sea           
+seen          trying        
+
+Words occurring 13 times:                  275-301        288.0
+baby          beautiful     begin         beginning     behind        
+cats          close         cook          dance         dodo          
+far           gone          grow          kept          may           
+never         people        sat           set           size          
+something     speak         still         through       used          
+who           yes           
+
+Words occurring 12 times:                  302-330        316.0
+afraid        alice's       always        among         best          
+bill          chapter       deal          every         finished      
+game          give          hands         hardly        left          
+majesty       many          pigeon        room          silence       
+suddenly      talk          that          these         though        
+turning       us            where         with          
+
+Words occurring 11 times:                  331-352        341.5
+ask           child         dinah         else          glad          
+gloves        growing       hurried       hurry         i'd           
+keep          life          makes         minutes       pool          
+read          saw           tears         they're       waited        
+whether       wouldn't      
+
+Words occurring 10 times:                  353-386        369.5
+bottle        children      conversation  creatures     either        
+everything    explain       fan           foot          footman       
+glass         having        heads         lessons       mean          
+mind          mouth         near          nearly        offended      
+opened        own           remark        remarked      repeated      
+rest          small         soldiers      those         turn          
+whole         witness       you'd         yourself      
+
+Words occurring 9 times:                   387-424        405.5
+against       angrily       answer        believe       birds         
+coming        continued     couldn't      croquet       different     
+does          few           help          hold          interrupted   
+join          key           knave         least         leave         
+matter        mine          put           rate          really        
+reason        serpent       shouted       sight         sitting       
+suppose       sure          tail          together      waiting       
+walked        want          word          
+
+Words occurring 8 times:                   425-480        452.5
+appeared      asleep        beg           book          bright        
+call          changed       distance      dry           each          
+eagerly       everybody     exactly       fact          feel          
+five          followed      gardeners     hadn't        happen        
+hard          haven't       hearts        it'll         live          
+making        meaning       moral         most          mushroom      
+next          nose          opportunity   our           party         
+play          puzzled       queen         queer         ready         
+running       same          seem          shook         sister        
+some          story         thinking      top           twinkle       
+wasn't        watch         whiting       window        wood          
+work          
+
+Words occurring 7 times:                   481-538        509.5
+adventures    begun         bread         business      cheshire      
+chin          draw          dream         drink         evidence      
+eye           feeling       fetch         frightened    generally     
+goes          golden        grown         hair          hall          
+happened      has           hedgehog      history       isn't         
+kind          learn         listen        lobster       lory          
+middle        myself        name          open          others        
+pepper        pig           pleased       queen's       repeat        
+she's         shoes         sir           sit           slates        
+slowly        so            somebody      soo           surprised     
+tarts         their         timidly       tired         trial         
+try           william       world         
+
+Words occurring 6 times:                   539-598        568.5
+almost        along         arms          between       broken        
+chimney       chorus        deep          dreadfully    ear           
+english       exclaimed     executed      fancy         father        
+fell          fish          forgotten     four          full          
+grin          guinea        himself       hot           important     
+jumped        late          leaves        liked         lobsters      
+loud          marked        melancholy    pardon        politely      
+puppy         roof          sentence      seven         shan't        
+sharp         sneezing      song          stupid        ten           
+this          times         told          treacle       trembling     
+trouble       understand    up            wondering     wow           
+write         writing       you'll        you've        youth         
+
+Words occurring 5 times:                   599-698        648.5
+across        ah            aloud         altogether    angry         
+asking        become        case          confusion     crowded       
+curiosity     cut           dare          direction     doing         
+drew          dropped       ears          eggs          executioner   
+faces         finger        finish        flamingo      ground        
+happens       height        home          hookah        impatiently   
+instantly     interesting   kid           knee          let's         
+likely        lizard        lying         man           manage        
+means         meant         morning       moved         near          
+neck          nice          nobody        noticed       often         
+pack          pair          passed        piece         place         
+pocket        prizes        procession    quietly       remembered    
+reply         rule          sadly         seems         shrill        
+shut          sighed        simple        sing          sleep         
+sleepy        something     sometimes     sounded       speaking      
+stay          stood         stop          strange       subject       
+sudden        suppose       surprise      swim          temper        
+they          tone          tree          trees         try           
+until         usual         walk          water         waving        
+what's        whispered     written       wrong         young         
+
+Words occurring 4 times:                   699-856        777.5
+age           alas          alone         animals       ann           
+answered      arches        argument      bats          beat          
+beau          begins        besides       boots         bottom        
+bowed         box           breath        busily        capital       
+care          carried       chance        confused      consider      
+corner        creature      crowd         crumbs        days          
+dead          decidedly     deeply        difficulty    digging       
+dish          doubt         duck          earth         escape        
+except        fall          fallen        fast          fear          
+fellow        fire          fond          french        frowning      
+girl          grass         green         grunted       hearing       
+held          hers          honour        hours         inches        
+indignantly   judge         jumping       jurors        jurymen       
+kitchen       larger        lay           led           less          
+lives         m             mabel         managed       mary          
+mice          miss          mouths        nearer        nervous       
+nonsense      notice        officers      ordered       otherwise     
+outside       pale          paper         particular    passage       
+paws          perfectly     person        pictures      players       
+pointing      porpoise      puzzling      quadrille     queer         
+questions     rabbit's      reach         really        rose          
+run           sat           says          school        second        
+see           severely      sharply       short         shoulder      
+shoulders     shrinking     sides         sigh          silent        
+since         sky           slate         solemnly      sound         
+sounds        stand         stick         stuff         suppressed    
+swam          taken         taking        taught        thank         
+there's       they'll       thimble       thoughtfully  time          
+tiny          tongue        true          twelve        twice         
+twinkling     uncomfortable unimportant   vanished      ventured      
+verse         verses        violently     walking       wanted        
+why           worth         yer           
+
+Words occurring 3 times:                  857-1104        980.5
+above         advance       advantage     alive         allow         
+anxious       around        attending     bank          bat           
+beheaded      below         bill's        boy           breathe       
+bring         bringing      brought       butter        cake          
+cakes         candle        cards         carefully     catch         
+caucus        caught        cause         cautiously    certain       
+checked       cheered       choked        civil         confusing     
+considered    considering   courage       crab          crash         
+cross         crossed       crown         cry           dark          
+dears         decided       delight       directions    dogs          
+doth          drawling      duchess's     dull          e             
+eager         eaglet        easily        edge          effect        
+elbow         em            execution     expecting     fall          
+faster        figure        filled        finding       fit           
+floor         fly           folded        follows       forgetting    
+free          friend        frog          fun           fur           
+further       fury          general       gently        girls         
+grand         grave         gravely       grinned       growl         
+guess         guessed       guests        handed        hanging       
+he's          hedgehogs     hoarse        holding       hope          
+howling       hungry        hunting       hurt          hush          
+immediately   impossible    instance      instead       joined        
+kick          knocking      knowledge     lady          larger        
+later         legs          lesson        letter        list          
+listening     lived         livery        longer        lost          
+loudly        love          lying         mark          master        
+mentioned     met           miles         mistake       move          
+moving        muchness      music         mustard       muttering     
+name          never         new           nibbling      nine          
+none          noticed       number        nursing       o'clock       
+obliged       order         owl           panther       passion       
+pattering     paw           peeped        picked        pie           
+pity          place         plan          plate         pleaded       
+poison        possibly      pray          present       pressed       
+proper        putting       race          reading       real          
+red           remained      remarking     remarks       repeating     
+roses         rules         sad           savage        sense         
+serpents      she'll        should        shouldn't     show          
+shriek        sighing       silent        simply        slipped       
+smaller       snail         sobbing       sobs          solemn        
+somewhere     sorts         spectacles    speech        spread        
+stairs        staring       suit          sulky         tails         
+tale          tasted        tea           teacup        telescope     
+that's        themselves    then          they'd        thinking      
+throw         timid         tis           toes          tortoise      
+trial's       trumpet       tucked        twenty        two           
+unfortunate   upset         venture       verdict       voices        
+washing       wasn't        watching      were          whatever      
+whiskers      whisper       whole         wonderland    worse         
+wrote         yesterday     yours         
+
+Words occurring 2 times:                 1105-1540       1322.5
+absurd        accident      addressed     advice        advisable     
+afterwards    ago           agree         alarm         already       
+also          anger         appear        apples        archbishop    
+ashamed       assembled     atom          authority     bad           
+bark          barrowful     bear          beasts        beating       
+beautifully   became        belongs       bend          bird          
+bite          blasts        blew          blow          body          
+branches      break         brightened    broke         brown         
+burn          busy          cares         carrying      cat's         
+catching      cauldron      caused        changes       changing      
+choice        chose         claws         clear         clever        
+clock         closed        coaxing       collected     comes         
+comfits       concert       concluded     conclusion    conqueror     
+constant      contemptuously cool          courtiers     crimson       
+crying        cucumber      cup           cupboards     curiouser     
+curled        cushion       custody       dancing       declare       
+delighted     delightful    denied        deny          difficult     
+dinah'll      dinn          dinner        dipped        directed      
+directly      disappeared   dishes        dispute       distant       
+dog           doors         doubtful      doubtfully    dreadful      
+drive         drunk         earls         earnestly     easy          
+editions      edwin         encouraging   entangled     entirely      
+evening       everything's  excellent     executions    experiment    
+explanation   extraordinary extremely     falling       fancied       
+fashion       feeble        feelings      ferrets       fight         
+fine          flamingoes    flat          flower        flowers       
+follow        footsteps     forehead      forget        forgot        
+fountains     friends       fright        front         funny         
+giddy         giving        goldfish      goose         hall          
+hasn't        hate          heart         heavy         hedge         
+hint          hit           hoping        hour          humbly        
+hurriedly     ill           imagine       inches        inside        
+interrupting  introduce     invitation    invited       jar           
+jaws          keeping       kindly        king's        knife         
+knot          knowing       knows         label         laid          
+lap           lasted        latitude      laughed       laughing      
+law           leaning       learning      learnt        left          
+lefthand      lie           line          living        locks         
+lonely        longed        longitude     lovely        luckily       
+ma            manage        manner        matters       meekly        
+meet          mercia        merely        messages      mile          
+milk          miserable     missed        mixed         moment's      
+month         morcar        mostly        muttered      mystery       
+names         narrow        natural       natural       neck          
+needn't       neither       new           nibbled       night         
+night         nine          nobody        noise         nonsense      
+nor           northumbria   not           note          nothing       
+notion        now           number        nurse         o             
+occurred      offer         older         opening       ordering      
+ornamented    painting      panting       parchment     paris         
+part          pat           patiently     pause         pebbles       
+persisted     personal      picking       pieces        pig           
+pigs          pinch         pinched       places        plates        
+playing       pleasure      plenty        position      presently     
+presents      proceed       proud         proved        proves        
+purring       quarrelling   quick         quickly       quiet         
+railway       raised        rapidly       rattling      raving        
+recovered     regular       relief        remarkable    removed       
+resting       returned      riddles       ring          ringlets      
+rome          row           royal         rubbing       rude          
+rush          safe          sang          saw           scream        
+screamed      screamed      scroll        secondly      sell          
+sending       sensation     sent          settled       several       
+several       sh            shaking       shaped        she'd         
+shore         shorter       shouldn't     shouting      shower        
+showing       shriek        shutting      signed        silence       
+singers       sisters       smallest      smile         smiled        
+smiling       smoking       snatch        sneeze        sneezes       
+sooner        sorrow        sorrowful     speak         squeaking     
+stamping      stand         started       stirring      stole         
+stood         stoop         stopped       straight      stretched     
+stretching    struck        succeeded     summer        sun           
+swimming      takes         talk          taller        taste         
+teacups       telling       than          these         they're       
+things        thistle       thoroughly    thoughts      thousand      
+throat        throwing      thump         till          timidly       
+tis           tones         tossing       treading      trees         
+trembled      triumphantly  trotting      tumbling      turns         
+turtle's      tut           ugh           uglification  ugly          
+undertone     uneasily      unfolded      unhappy       unpleasant    
+us            useful        using         usually       violent       
+waistcoat     wake          wandered      wandering     wash          
+wasting       way           we're         we've         week          
+wet           where's       wherever      whose         wide          
+wig           wild          wildly        wind          wine          
+wink          wise          within        woman         won           
+wonderful     wouldn't      wretched      yawned        yawning       
+year          
+
+Words occurring 1 times:                 1541-2776       2158.5
+abide         able          absence       acceptance    accidentally  
+account       accounting    accounts      accusation    accustomed    
+ache          act           actually      ada           adding        
+addressing    adjourn       adoption      advise        affair        
+affectionately afford        afore         agony         ahem          
+airs          alarmed       altered       alternately   ambition      
+ancient       animal        animal's      annoy         annoyed       
+answers       antipathies   anywhere      appealed      appearance    
+appearing     applause      arch          argue         argued        
+arguments     arithmetic    arranged      arrived       arrow         
+arrum         askance       ate           atheling      attempt       
+attempted     attempts      attended      attends       audibly       
+australia     avoid         awfully       axes          axis          
+backs         bag           baked         balanced      balls         
+banks         banquet       barking       barley        bathing       
+bawled        beak          beast         beauti        beautify      
+becoming      bed           beds          bee           begged        
+behead        beheading     believed      bells         belong        
+beloved       belt          bent          birthday      bitter        
+blacking      blades        blame         bleeds        blown         
+blows         boldly        bone          bones         books         
+boon          bore          bother        bough         bound         
+bowing        boxed         brain         branch        brass         
+brave         breeze        bristling     brother's     brush         
+brushing      burning       burnt         burst         bursting      
+buttercup     buttered      butterfly     buttons       cackled       
+calling       calmly        camomile      canary        cannot        
+canterbury    canvas        capering      cardboard     carrier       
+carroll       carry         cart          cartwheels    caterpillar's 
+cattle        ceiling       centre        chains        chanced       
+character     charges       chatte        cheap         cheated       
+cheeks        cheerfully    cherry        chief         childhood     
+chimneys      choke         choking       choosing      chop          
+christmas     chrysalis     chuckled      circle        circumstances 
+clamour       clapping      clasped       classics      clean         
+cleared       clearer       clearly       climb         clinging      
+closely       closer        clubs         coast         coils         
+cold          collar        comfort       comfortable   comfortably   
+common        commotion     company       complained    complaining   
+completely    condemn       conduct       conger        conquest      
+consented     consultation  contempt      contemptuous  content       
+contradicted  conversations corners       cost          counting      
+country       couple        couples       coward        crashed       
+crawled       crawling      crazy         creep         crept         
+cries         crocodile     croqueted     croqueting    crossly       
+crouched      cunning       cur           curls         curly         
+currants      curtain       curtsey       curtseying    curving       
+custard       cutting       d             dainties      daisies       
+daisy         daresay       darkness      dates         daughter      
+death         declared      deep          deepest       delay         
+denial        denies        denying       depends       derision      
+deserved      despair       desperate     desperately   diamonds      
+die           died          difficulties  dig           diligently    
+dinah's       disagree      disappointment disgust       dismay        
+disobey       distraction   dive          dodged        dog's         
+doorway       dormouse's    double        doubled       doubling      
+downward      downwards     doze          dozing        draggled      
+drawing       dreamed       dreaming      dreamy        dressed       
+dried         driest        drinking      dripping      drop          
+dropping      drowned       dunce         dutchess      eaten         
+eating        eats          edgar         edition       educations    
+eel           eels          egg           elbows        elegant       
+eleventh      else's        elsie         emphasis      empty         
+encourage     encouraged    ending        energetic     engaged       
+england       engraved      enjoy         ennyworth     enormous      
+entrance      esq           est           evidently     exact         
+examining     exclamation   execute       executes      executioner's 
+existence     expected      explained     explanations  expressing    
+expression    extras        eyelids       fading        failure       
+faint         fainting      faintly       fair          fairly        
+fairy         familiarly    family        fancying      fanned        
+fanning       farm          farmer        farther       fat           
+favoured      favourite     feared        feather       feathers      
+feebly        fellows       fender        fidgeted      field         
+fifteen       fifteenth     fifth         fig           fighting      
+figures       fills         finds         finishing     fireplace     
+fishes        fits          fitted        fix           fixed         
+flame         flapper       flappers      flashed       flavour       
+flew          flinging      flock         flown         flung         
+flurry        flustered     fluttered     flying        folding       
+foolish       footman's     footmen       forepaws      fork          
+form          fortunately   forty         forwards      fourteenth    
+fourth        france        frighten      frontispiece  frying        
+fulcrum       fumbled       funny         furious       furiously     
+furrow        furrows       gained        gallons       game's        
+games         gather        gay           gazing        geography     
+given         glanced       glaring       globe         gloomily      
+graceful      grammar       grant         gravy         grazed        
+grew          grey          grief         grinning      grins         
+growled       growling      growls        grumbled      grunt         
+guard         guilt         handsome      handwriting   happening     
+happy         harm          haste         hat           hatching      
+hated         hatter's      hatters       he'd          he'll         
+head's        heap          hearth        hearthrug     hedges        
+heels         helped        helpless      herald        hid           
+hide          highest       hight         hippopotamus  hiss          
+histories     hjckrrh       hm            hoarsely      holiday       
+hollow        honest        hoped         hopeful       hopeless      
+housemaid     houses        howled        humble        hundred       
+hung          hurrying      idiot         idiotic       ignorant      
+ii            iii           imitated      immediate     immense       
+impatient     impertinent   improve       incessantly   inclined      
+indignant     injure        ink           inkstand      inquired      
+inquisitively insolence     insult        interest      interrupt     
+introduced    invent        invented      involved      inwards       
+irritated     iv            ix            jack          jaw           
+jelly         jogged        journey       joys          judging       
+juror         justice       kettle        kill          killing       
+kills         kings         kiss          kissed        kneel         
+knelt         knock         knocked       known         knuckles      
+labelled      lacie         lad           ladder        lamps         
+land          languid       largest       lark          lastly        
+lately        latin         laugh         laughter      lazily        
+lazy          leaders       leading       leant         leap          
+learned       leaving       ledge         length        lessen        
+lest          letters       lewis         licking       lifted        
+likes         limbs         lines         linked        lips          
+listened      listeners     lit           lizard's      lobster's     
+lock          locked        lodging       london        loose         
+lose          losing        louder        loveliest     loving        
+lower         lowing        lullaby       ma'am         machines      
+magic         magpie        mallets       managing      manners       
+maps          marched       marmalade     maybe         mayn't        
+meal          meanwhile     measure       meat          meeting       
+memorandum    memory        merrily       millennium    minded        
+minding       mineral       mischief      moderate      modern        
+moon          morals        morsel        mournful      mournfully    
+mouse's       muddle        multiplication murder        murdering     
+muscular      nasty         natured       nearer        nearly        
+neat          neatly        neatly        needn't       needs         
+neighbour     neighbouring  nervous       nest          nevertheless  
+newspapers    nice          nicely        nicely        nile          
+nobody        nodded        noise         noises        none          
+nonsense      nor           normans       notice        noticing      
+notion        nowhere       nowhere       nurse         oblong        
+obstacle      occasional    occasionally  odd           offend        
+officer       ointment      oldest        one's         ones          
+oneself       onions        opening       opinion       opposite      
+orange        ou            ours          ourselves     overcome      
+overhead      oyster        p             pace          paint         
+pairs         panted        pardoned      partner       partners      
+parts         pass          passing       passionate    past          
+patience      patriotic     patted        pattern       paused        
+peeping       peering       pegs          pence         pencil        
+pencils       pennyworth    pepper        permitted     persons       
+pet           picture       pictured      pieces        pine          
+pink          piteous       pitied        placed        plainly       
+plan          planning      played        pleasant      pleasanter    
+pleases       pleasing      pointed       poker         poky          
+poor          pop           pope          positively    possible      
+pounds        pour          poured        powdered      practice      
+precious      presented     pressing      pretend       pretending    
+pretexts      pretty        prevent       printed       prison        
+prisoner      prisoner's    prize         processions   produced      
+producing     promise       promised      promising     pronounced    
+proposal      prosecute     protection    prove         provoking     
+puffed        pulled        pulling       pun           punching      
+punished      puppy's       purple        purpose       push          
+puss          puzzle        puzzled       quarrel       quarrelled    
+queens        queerest      quicker       quiver        rabbits       
+raising       rapped        rat           rats          rattle        
+raven         ravens        raw           reaching      readily       
+reality       rearing       reasonable    reasons       received      
+recognised    reduced       reeds         reeling       refreshments  
+refused       relieved      remain        remaining     remedies      
+remembering   reminding     resource      respect       respectable   
+respectful    result        retire        returning     rich          
+riddle        ridge         ridges        ridiculous    righthand     
+rightly       riper         rippling      rise          rises         
+rising        roared        roast         rock          room          
+roots         rope          rosetree      roughly       rubbed        
+rudeness      rumbling      rushed        rustled       rustling      
+sage          salmon        salt          salt          sand          
+sands         saucepan      saucepans     saucer        savage        
+save          saves         saying        scale         scaly         
+school        schoolroom    scolded       scrambling    scratching    
+screaming     seals         seaography    search        seaside       
+seated        secret        seeing        seen          seldom        
+send          sends         sentenced     series        seriously     
+set           setting       settle        settled       settling      
+severity      shade         shake         shakespeare   shaking       
+shape         shaped        share         shared        sharing       
+shark         sharks        shedding      sheep         shelves       
+shepherd      shifting      shilling      shillings     shingle       
+shining       shiny         shiver        shock         shook         
+shore         shrieked      shrieks       shrimp        shrink        
+shy           shyly         sight         sign          signifies     
+signify       simpleton     sing          singing       singing       
+sink          sister's      sit           sits          sitting       
+six           six           sixpence      sixteenth     sizes         
+skimming      skirt         skurried      sky           slates'll     
+sleep         slightest     slippery      slowly        sluggard      
+smoke         snappishly    sneezed       snorting      snout         
+sob           sobbed        sobs          soft          softly        
+soldier       soles         solid         somehow       someone       
+somersault    son           song          soothing      sorrows       
+sorry         sour          spades        speaker       speed         
+spell         spite         splash        splashed      splashing     
+splashing     splendidly    spoken        spoon         spoon         
+spot          sprawling     spreading     squeaked      squeeze       
+squeezed      stalk         standing      star          startled      
+startled      state         station       stays         steady        
+steam         sternly       sticks        stiff         stigand       
+stingy        stockings     stolen        stool         stop          
+stopped       stopping      straightened  straightening strength      
+strings       stupidest     stupidly      subdued       subject       
+subjects      submitted     succeeded     suddenly      suet          
+sugar         sulkily       sulkily       supple        suppress      
+swallow       swallowed     swallowing    swam          sweet         
+t             taking        tale          tastes        teaching      
+teapot        teases        teeth         telescopes    tell          
+tells         tells         terms         terribly      terrier       
+terror        thanked       that'll       thatched      theirs        
+therefore     they'd        they've       thick         thin          
+thirteen      three         threw         threw         throne        
+thrown        thunder       thunderstorm  thy           tide          
+tidy          tie           tied          tight         tillie        
+tinkling      tipped        tiptoe        tiptoe        tittered      
+toast         today         toffee        tomorrow      tops          
+toss          tossing       touch         tougher       towards       
+toys          trampled      treacle       treat         treated       
+tremble       tremulous     trials        trickling     tricks        
+trims         trot          trusts        truth         truthful      
+tulip         tumbled       tunnel        tureen        turkey        
+turn          turns         turtles       turtles       twelfth       
+twentieth     twinkled      twist         twist         uglify        
+uglifying     unable        uncivil       uncomfortably uncommon      
+uncommonly    uncorked      underneath    understood    undo          
+undoing       uneasy        unjust        unless        unless        
+unlocking     unrolled      unrolled      untwist       unusually     
+unwillingly   upright       upsetting     upstairs      usurpation    
+v             vague         vanishing     variations    various       
+vegetable     velvet        vi            vii           viii          
+vinegar       violence      visit         vote          vulgar        
+w             wag           wags          waist         wait          
+walked        walking       walrus        wander        wants         
+wants         warning       waste         watched       watched       
+waters        ways          weak          weak          wearily       
+week          weeks         welcome       wept          weren't       
+whenever      where         whereupon     whiles        whispers      
+whistle       whistling     who's         whoever       whom          
+wider         wife          william's     win           wings         
+winter        wits          woke          wondered      wondering     
+wooden        word          wore          works         worm          
+worried       worry         wrapping      wriggling     writhing      
+written       x             xi            xii           yards         
+ye            years         yelled        yelp          zealand       
+zigzag        
+

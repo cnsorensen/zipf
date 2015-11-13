@@ -55,6 +55,7 @@ class hashTable
 		friend int freqcomp(tableItem *e1, tableItem *e2); // <-- accidently did this, and it works now..
         friend int wordcomp(tableItem *e1, tableItem *e2);
         friend int findEnd( int, const hashTable* );
+		int getDigits(int num);
 };
 
 #endif

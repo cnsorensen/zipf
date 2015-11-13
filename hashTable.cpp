@@ -108,8 +108,20 @@ int findEnd( int index, const hashTable* h )
 void hashTable::sort()
 {
     // Sort by the frequency values
-	qsort(table, fullSize, sizeof(tableItem), freqcomp);
+	qsort(table, fullSize, sizeof(tableItem), [](const void* a, const void *b)
+	{
+		hashTable::tableItem *ia = (hashTable::tableItem *)(a);
+		hashTable::tableItem *ib = (hashTable::tableItem *)(b);
+		return (int)(ib->freq - ia->freq);
+	});
     
+
+	/**
+	 *  @christine, this worked somewhat, the end of the last 
+	 * contained a random word... didn't write it so i had no idea
+	 * how to go about fixing it.. i just used qsort with a lambda
+	 * function below in the .wrd printing
+	**/
     // Sort alphabetically within the frequency values
     for( int i = 0; i < tableSize; i++ )
     {
@@ -135,39 +147,64 @@ void hashTable::printStats(string file) {
 	out << "\nZipf's Law\n----------\nFile: " << file;
 	out << "\nTotal number of words = " << numWords;
 	out << "\nNumber of distinct words = " << numDistinct << "\n\n";
-	/*out << "\n\nWord Frequencies\t\t\tRanks\tAvg Rank";
-	out << "\n----------------\t\t\t-----\t--------";
-	out << "\n\n";*/
 	//29 spaces between s and r, 5 spaces between s and a
 	out << "Word Frequencies"<< setw(47) << "Ranks     Avg Rank";
 	out << "\n";
 	out << "----------------"<< setw(47) << "-----     --------";
 	out << "\n\n";
-	int i = 0, numWords, curFreq, digits = 0, temp = 0, rank = 1;
+	int i = 0, count, curFreq;
+	float rank = 1.0;
+	string rankword;
 	string *words;
 	while(table[i].freq != -1) {
-	  numWords = digits = temp = 0;
+	  count = 0;
 	  curFreq = table[i].freq;
-	  words = new string[numDistinct]; // distinct becuz worst case is they all occur once or something.
-
-	  temp = curFreq/10;
-	  while(temp != 0) {
-	    if(temp > 0)
-	      digits++;
-	    temp = temp/10;
-	  }
-	  cout << "Dig: " << digits << "\n";
-	  out << "Words occurring " <<curFreq<< " times:" << setw((26-digits)) << rank;
-	  out << "\n";
+	  words = new string[numDistinct];
 	  while(table[i].freq == curFreq) {
-	    words[numWords] = table[i].word;
-	    
-	    numWords++;
+	    words[count] = table[i].word;
+	    count++;
 	    i++;
 	  }
-	  i++;
+	  // LAMBDA!!! woohoo.
+	  qsort(words, count, sizeof(string), [](const void *a, const void *b)
+	  {
+		  string ia = *(string *)(a);
+		  string ib = *(string *)(b);
+		  return ia.compare(ib);
+	  });
+	  rankword = to_string((int)rank) + "-" + to_string((int)rank+count-1);
+	  if (count == 1) {
+		  out << "Words occurring " << curFreq << " times:"
+			  << setw((27 - getDigits(curFreq))) << (int)rank;
+		  out << fixed << showpoint;
+		  out << setprecision(1);
+		  out << setw(13) << rank;
+	  }
+	  else {
+		  out << "Words occurring " << curFreq << " times:" 
+			  << setw((27 - getDigits(curFreq))) << rankword;
+		  out << fixed << showpoint;
+		  out << setprecision(1);
+		  out << setw(13) << (float)(((float)(rank + (rank+count-1))) / 2);
+	  }
+	  rank = rank + count;
+	  for (int j = 0; j < count; j++) {
+		  if (j % 5 == 0)
+			  out << "\n";
+		  out << words[j] << setw(14-words[j].length()) << " ";
+	  }
+	  out << "\n\n";
 	}
 	out.close();
+}
+
+int hashTable::getDigits(int num) {
+	int digits = 1, temp = num / 10;
+	while (temp != 0) {
+		digits++;
+		temp = temp / 10;
+	}
+	return digits;
 }
 
 int hashTable::getNumWords() {
