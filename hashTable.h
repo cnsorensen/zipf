@@ -27,8 +27,8 @@ class hashTable
 	int getNumWords();
 	int getNumDistinct();
 	int getSize();
-        //delete
-        //find
+    bool deleteWord(std::string);
+    int findWord(std::string);
     void printHashTable();
     
 	
@@ -36,8 +36,6 @@ class hashTable
 	  std::string word = "";
 	  int freq = -1;
 	};
-
-        //friend int compare( const void*, const void* );
 
     private:
 		/**
@@ -54,7 +52,7 @@ class hashTable
 		int fullSize = 1352;
 		friend int freqcomp(tableItem *e1, tableItem *e2); // <-- accidently did this, and it works now..
         friend int wordcomp(tableItem *e1, tableItem *e2);
-        friend int findEnd( int, const hashTable* );
+        friend int findLength( int, const hashTable* );
 		int getDigits(int num);
 };
 

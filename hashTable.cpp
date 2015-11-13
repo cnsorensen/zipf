@@ -70,6 +70,45 @@ bool hashTable::insert(string s) {
 	return true;
 }
 
+bool hashTable::deleteWord(string s){
+
+    
+/*    int startKey = ((s[0]-97) * (fullSize / 26));
+    int currKey = startKey;
+    while( table[currKey].word != s  ){
+        if( currKey == tableSize )
+            currKey = -1;
+        currKey++;
+        if( currKey == staryKey )
+            return false;
+    }
+    
+    table[currKey].freq = -1;
+    table[currKey].word = "";
+*/
+    int i = findWord( s );
+    if( i )
+    {
+        table[i].freq = -1;
+        table[i].word = "";
+        return true;
+    }
+
+    return false;
+}
+
+int findWord(string s){
+    int startKey = ((s[0]-97) * (fullSize/26));
+    int currKey = startKey;
+
+
+}
+
+
+bool hashTable::deleteWord(strings) {
+    
+}
+
 /**
  * I don't know how this works now... it didnt work earlier, yet it
  * decides to work now.. little trolls fixed bugs or something,
@@ -90,7 +129,7 @@ int wordcomp(const void *a, const void *b){
     return ia->word.compare(ib -> word ); 
 }
 
-int findEnd( int index, const hashTable* h )
+int findLength( int index, const hashTable* h )
 {
     int length = 0;
 
@@ -131,7 +170,12 @@ void hashTable::sort()
             // If they have the same frequency, find the number of words with
             // that frequency. Sort only those in the table
             int length = findEnd( i, this );
-            qsort( table + i, length, sizeof( tableItem ), wordcomp );
+            qsort(table + i, length + 1, sizeof(tableItem), [](const void* a, const void*b)
+            {
+                hashTable::tableItem *ia = (hashTable::tableItem *)a;
+                hashTable::tableItem *ib = (hashTable::tableItem *)b;
+                return ia->word.compare(ib -> word );
+            });
             i += length;
         }  
     }    
@@ -217,6 +261,13 @@ void hashTable::printStats(string file) {
 	}
 	wrdout.close();
 	csvout.close();
+}
+
+int hashTable::findWord(string s){
+    for( int i = 0; i < fullSize; i++ )
+        if( table[i].word == s )
+            return i;
+    return -1;    
 }
 
 int hashTable::getDigits(int num) {
