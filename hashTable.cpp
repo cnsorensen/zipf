@@ -138,20 +138,36 @@ void hashTable::sort()
 }
 
 void hashTable::printStats(string file) {
-	ofstream out;
+	//Declare ofstreams for file output
+	ofstream wrdout;
+	ofstream csvout;
+
+	//Find the file extension and give a new extension
 	int ext = file.find_last_of('.');
 	if (ext == -1)
 		ext = file.length();
 	string wrdFile = file.substr(0, ext)+".wrd";
-	out.open(wrdFile, ios::out | ios::trunc);
-	out << "\nZipf's Law\n----------\nFile: " << file;
-	out << "\nTotal number of words = " << numWords;
-	out << "\nNumber of distinct words = " << numDistinct << "\n\n";
-	//29 spaces between s and r, 5 spaces between s and a
-	out << "Word Frequencies"<< setw(47) << "Ranks     Avg Rank";
-	out << "\n";
-	out << "----------------"<< setw(47) << "-----     --------";
-	out << "\n\n";
+	string csvFile = file.substr(0, ext) + ".csv";
+
+	//Open and begin writing to the files..
+	wrdout.open(wrdFile, ios::out | ios::trunc);
+	csvout.open(csvFile, ios::out | ios::trunc);
+
+	//First we write to the wrd file, then the csv file
+	wrdout << "\nZipf's Law\n----------\nFile: " << file;
+	wrdout << "\nTotal number of words = " << numWords;
+	wrdout << "\nNumber of distinct words = " << numDistinct << "\n\n";
+	wrdout << "Word Frequencies"<< setw(47) << "Ranks     Avg Rank";
+	wrdout << "\n";
+	wrdout << "----------------"<< setw(47) << "-----     --------";
+	wrdout << "\n\n";
+
+	csvout << "\n    Zipf's Law\n    ----------\n    File: " << file;
+	csvout << "\n    Total number of words = " << numWords;
+	csvout << "\n    Number of distinct words = " << numDistinct;
+	csvout << "\n\n    rank    freq    rank*freq\n    ----    ----    ---------\n";
+	
+	// Here we handle the ranks and frequencies of our hash table
 	int i = 0, count, curFreq;
 	float rank = 1.0;
 	string rankword;
@@ -174,28 +190,33 @@ void hashTable::printStats(string file) {
 	  });
 	  rankword = to_string((int)rank) + "-" + to_string((int)rank+count-1);
 	  if (count == 1) {
-		  out << "Words occurring " << curFreq << " times:"
+		  wrdout << "Words occurring " << curFreq << " times:"
 			  << setw((27 - getDigits(curFreq))) << (int)rank;
-		  out << fixed << showpoint;
-		  out << setprecision(1);
-		  out << setw(13) << rank;
-	  }
-	  else {
-		  out << "Words occurring " << curFreq << " times:" 
+		  wrdout << fixed << showpoint << setprecision(1);
+		  wrdout << setw(13) << rank;
+		  csvout << fixed << showpoint << setprecision(1);
+		  csvout << setw(7) << rank << ",";
+		  csvout << setw(7) << curFreq << ",";
+		  csvout << setw(12) << (float)((float)rank*(float)curFreq) << "\n";
+	  } else {
+		  wrdout << "Words occurring " << curFreq << " times:" 
 			  << setw((27 - getDigits(curFreq))) << rankword;
-		  out << fixed << showpoint;
-		  out << setprecision(1);
-		  out << setw(13) << (float)(((float)(rank + (rank+count-1))) / 2);
+		  wrdout << fixed << showpoint << setprecision(1);
+		  wrdout << setw(13) << (float)(((float)(rank + (rank+count-1))) / 2);
+		  csvout << setw(7) << (float)(((float)(rank + (rank + count - 1))) / 2) << ",";
+		  csvout << setw(7) << curFreq << ",";
+		  csvout << setw(12) << (float)((((float)(rank + (rank + count - 1))) / 2)*(float)curFreq) << "\n";
 	  }
 	  rank = rank + count;
 	  for (int j = 0; j < count; j++) {
 		  if (j % 5 == 0)
-			  out << "\n";
-		  out << words[j] << setw(14-words[j].length()) << " ";
+			  wrdout << "\n";
+		  wrdout << words[j] << setw(14-words[j].length()) << " ";
 	  }
-	  out << "\n\n";
+	  wrdout << "\n\n";
 	}
-	out.close();
+	wrdout.close();
+	csvout.close();
 }
 
 int hashTable::getDigits(int num) {
