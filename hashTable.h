@@ -15,42 +15,29 @@ using namespace std;
 class hashTable
 {
     public:
-        // constructor
-        hashTable();
-        // destructor
-        ~hashTable();
-    
-	void resize(int newSize);
-	bool insert(std::string s);
-	void sort();
-	void printStats(std::string file);
-	int getNumWords();
-	int getNumDistinct();
-	int getSize();
-    bool deleteWord(std::string);
-    int findWord(std::string);
-    void printHashTable();
-    
+        hashTable();  // constructor
+        ~hashTable(); // destructor
+		void resize(int newSize); // resizes the hash table
+		bool insert(std::string s); // inserts string into hash table
+		void sort(); // sorts the hash table by frequency
+		void printStats(std::string file); // prints stats to output files
+		int getNumWords(); // returns num of words in file
+		int getNumDistinct(); // returns num of words in hash table
+		int getSize(); // returns size of hash table
+        bool deleteWord(std::string);
+        int findWord(std::string);  
+		void printHashTable();    
 	
-	struct tableItem {
-	  std::string word = "";
-	  int freq = -1;
-	};
+		struct tableItem {
+			std::string word = "";
+			int freq = -1;
+		};
 
-    private:
-		/**
-		 * maybe if we store it as a struct, we can make an array of structs
-		 * and access each index using a key.. like with a starting size of 1009
-		 * the key would be  (word[0] * (size/26)), if we have a large array of 
-		 * these words we can enhance the key to be (word[0] * (size/26) + word[1]
-		 * or something similar, not sure yet.. will have to evaluate more, but the
-		 * key can be upgraded later to see if more efficient.
-		**/
-		
+    private:		
 		tableItem *table = nullptr;
         int tableSize = 0, numDistinct = 0, numWords = 0;
 		int fullSize = 1352;
-		friend int freqcomp(tableItem *e1, tableItem *e2); // <-- accidently did this, and it works now..
+		friend int freqcomp(tableItem *e1, tableItem *e2);
         friend int wordcomp(tableItem *e1, tableItem *e2);
         friend int findLength( int, const hashTable* );
 		int getDigits(int num);
