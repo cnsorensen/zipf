@@ -1,4 +1,4 @@
-# Makefile
+## Makefile
 # Makefile for CSC300 Data Structures PA3
 
 # Author:
