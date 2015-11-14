@@ -53,7 +53,6 @@ void hashTable::resize(int newSize) {
 		table[i].freq = newTable[i].freq;
 	}
 	delete[] newTable;
-	cout << "finished!\n";
 }
 
 /**
@@ -62,14 +61,18 @@ void hashTable::resize(int newSize) {
  * it by the tablesize/26 to ensure the keys are placed evenly throughout the table.
 **/
 bool hashTable::insert(string s) {
-	if (tableSize == (fullSize)) {
+    if (tableSize == (fullSize)) {
 		cout << "WARNING: Hash table (size " << fullSize << ") is 75% full!\n";
 		resize(fullSize * 2);
 	}
 	int startKey = ((s[0]-97) * (fullSize / 26)); 
-	int currKey = startKey;
-	while (table[currKey].word != "" && table[currKey].word != s) 
-		currKey = (currKey + 1) % tableSize;
+    int currKey = startKey;
+	while (table[currKey].word != "" && table[currKey].word != s)
+    { 
+		if( currKey == tableSize )
+            currKey = -1;
+        currKey++;
+    }
 
 	if (table[currKey].word != s) {
 		table[currKey].word = s;
@@ -79,7 +82,7 @@ bool hashTable::insert(string s) {
     }
 	table[currKey].freq++;
 	numWords++;
-	return true;
+    return true;
 }
 
 bool hashTable::deleteWord(string s)
@@ -95,7 +98,7 @@ bool hashTable::deleteWord(string s)
     return false;
 }
 
-int findWord(string s)
+int hashTable::findWord(string s)
 {
     int startKey = ((s[0]-97) * (fullSize/26));
     int currKey = startKey;
@@ -143,7 +146,7 @@ int findLength( int index, const hashTable* h )
     }
 
     // Add one more to the number of words with the same frequency
-    length += findEnd( index + 1, h ) + 1;
+    length += findLength( index + 1, h ) + 1;
     return length;
 }
 
@@ -159,7 +162,7 @@ void hashTable::sort()
 		hashTable::tableItem *ia = (hashTable::tableItem *)(a);
 		hashTable::tableItem *ib = (hashTable::tableItem *)(b);
 		return (int)(ib->freq - ia->freq);
-	}
+	});
 
     // Sort alphabetically within the frequency values
     for( int i = 0; i < tableSize; i++ )
@@ -169,7 +172,7 @@ void hashTable::sort()
         {
             // If they have the same frequency, find the number of words with
             // that frequency. Sort only those in the table
-            int length = findEnd( i, this );
+            int length = findLength( i, this );
             qsort(table + i, length + 1, sizeof(tableItem), [](const void* a, const void*b)
             {
                 hashTable::tableItem *ia = (hashTable::tableItem *)a;

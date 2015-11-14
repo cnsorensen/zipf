@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <ctime>
 #include "hashTable.h"
 
 using namespace std;
@@ -60,7 +61,7 @@ void fileHandle(char* fileName, hashTable &h) {
     }
 
     string x;
-  
+    auto c1 = clock();
     while(in >> x) {
         x = tokenize(x);
 	    // we would add into a hash table here.. 
@@ -76,11 +77,11 @@ void fileHandle(char* fileName, hashTable &h) {
     cout << "Inserted " << h.getNumDistinct() << " distinct words into the hash table.\n";
     cout << "Compacting and sorting the hash table ... ";
     h.sort();
-    cout << "finished! (not yet..)\n";
-    cout << "Elapsed time = 'this doesnt work yet..'\n";
-
-    // Print out hash table to the screen  
-    h.printHashTable();
+    cout << "finished!\n";  
+    auto c2 = clock();  
+    auto totalTime = c2 - c1;
+    cout << "Elapsed time = " << totalTime * 1000.0 / CLOCKS_PER_SEC <<  " msec.\n";
+        
     h.printStats(fileName);
 }
 
