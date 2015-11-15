@@ -10,11 +10,24 @@ hashTable :: hashTable()
 	cout << "Generating a hash table of size " << fullSize << ".\n";
 	// Initialize hashtable to size tableSize and check for proper allocation
 	table = new tableItem[fullSize];
-	if (table == nullptr) { 
+	if (table == nullptr) 
+    { 
 		cout << "Unable to allocate space for hash table.\n";
 		exit(1); // exit with an error
 	}
 }
+
+hashTable :: hashTable( int n ) : fullSize( n )
+{
+    cout << "Generating a hashTable of size " << n << ".\n";
+    table = new tableItem[n];
+    if( table == nullptr )
+    {
+        cout << "ERROR" << endl;
+        exit(1);
+    }
+}
+
 
 /**
  * ~hashTable() Destructor, de-allocates memory used for the hash table.
@@ -28,23 +41,37 @@ hashTable :: ~hashTable()
  * resize(int), this function is called when the hash table reaches over 75%
  * capacity, it will allocate new space for the hash table and copy over the data.
 **/
-hashTable::tableItem* hashTable::resize(int newSize) {
+hashTable::tableItem* hashTable::resize(int newSize) 
+{
 	cout << "Rehashing to size " << newSize << " ... ";
-	tableItem *newTable = new tableItem[newSize];
-	if (newTable == nullptr) {
+
+	tableItem* newTable = new tableItem[newSize];
+    
+	if (newTable == nullptr) 
+    {
 		cout << "Unable to resize hashtable to size " << newSize << ". Exiting program.\n";
 		exit(1);
 	}
-	for (int i = 0; i < fullSize; i++) {
-		int currKey = ((table[i].word[0] - 97) * (newSize / 26));
-		while (newTable[currKey].word != "") {
-			if (currKey == tableSize)
-				currKey = -1;
-			currKey++;
-		}
-		newTable[currKey].word = table[i].word;
-		newTable[currKey].freq = table[i].freq;
-	}
+
+	for (int i = 0; i < fullSize; i++) 
+    {
+        if( table[i].freq != -1 )
+        {
+            int currKey = ((table[i].word[0] - 97) * (newSize / 26));
+		    
+            while (newTable[currKey].word != "") 
+            {
+                //cout << "current key " << currKey << endl;
+			    if (currKey == tableSize)
+				    currKey = -1;
+			    currKey++;
+		    }
+            
+		    newTable[currKey].word = table[i].word;
+		    newTable[currKey].freq = table[i].freq;
+        }
+    }
+
 	fullSize = newSize;
 	//delete[] table;
 	/*table = new tableItem[fullSize];
@@ -63,7 +90,8 @@ hashTable::tableItem* hashTable::resize(int newSize) {
  * it by the tablesize/26 to ensure the keys are placed evenly throughout the table.
 **/
 bool hashTable::insert(string s) {
-    if (tableSize == (fullSize * .75)) {
+    if (tableSize >= (fullSize * 0.75)) 
+    {
 		cout << "WARNING: Hash table (size " << fullSize << ") is 75% full!\n";
 		table = resize(fullSize * 2);
 	}
@@ -76,14 +104,18 @@ bool hashTable::insert(string s) {
         currKey++;
     }
 
-	if (table[currKey].word != s) {
+    // New word added
+	if (table[currKey].word != s) 
+    {
 		table[currKey].word = s;
 		tableSize++;
 		numDistinct++;
 	    table[currKey].freq++;
     }
+
 	table[currKey].freq++;
 	numWords++;
+
     return true;
 }
 
@@ -114,27 +146,6 @@ int hashTable::findWord(string s)
     }
 
     return currKey;
-}
-
-
-/**
- * I don't know how this works now... it didnt work earlier, yet it
- * decides to work now.. little trolls fixed bugs or something,
- * unexplainable how this works now. -lucas
- *
- * It's been working for me. I even used your format for the word compare
- * (see below) I haven't seen any errors. -cs
-**/
-int freqcomp(const void *a, const void *b) {
-	hashTable::tableItem *ia = (hashTable::tableItem *)a;
-	hashTable::tableItem *ib = (hashTable::tableItem *)b;
-	return (int)(ib->freq - ia->freq);
-}
-
-int wordcomp(const void *a, const void *b){
-    hashTable::tableItem *ia = (hashTable::tableItem *)a;
-    hashTable::tableItem *ib = (hashTable::tableItem *)b;
-    return ia->word.compare(ib -> word ); 
 }
 
 int findLength( int index, const hashTable* h )
@@ -181,6 +192,7 @@ void hashTable::sort()
                 hashTable::tableItem *ib = (hashTable::tableItem *)b;
                 return ia->word.compare(ib -> word );
             });
+
             i += length;
         }  
     }    
@@ -191,7 +203,8 @@ void hashTable::sort()
  * prints to them a formatted version of the hashTable that orders the words by freq
  * and gives each freq a rank. 
 **/
-void hashTable::printStats(string file) {
+void hashTable::printStats(string file) 
+{
 	//Declare ofstreams for file output
 	ofstream wrdout;
 	ofstream csvout;
@@ -226,77 +239,95 @@ void hashTable::printStats(string file) {
 	float rank = 1.0;
 	string rankword;
 	string *words;
-	while(table[i].freq != -1) {
-	  count = 0;
-	  curFreq = table[i].freq;
-	  words = new string[numDistinct];
-	  while(table[i].freq == curFreq) {
-	    words[count] = table[i].word;
-	    count++;
-	    i++;
-	  }
-	  // Here we print out the word frequency, rank, avg rank, and the array of words
-	  if (count == 1) {
-		  wrdout << "Words occurring " << curFreq << " times:"
-			  << setw((27 - getDigits(curFreq))) << (int)rank;
-		  wrdout << fixed << showpoint << setprecision(1);
-		  wrdout << setw(13) << rank;
-		  csvout << fixed << showpoint << setprecision(1);
-		  csvout << setw(7) << rank << ",";
-		  csvout << setw(7) << curFreq << ",";
-		  csvout << setw(12) << (float)((float)rank*(float)curFreq) << "\n";
-	  } else {
-		  rankword = to_string((int)rank) + "-" + to_string((int)rank + count - 1);
-		  wrdout << "Words occurring " << curFreq << " times:" 
-			  << setw((27 - getDigits(curFreq))) << rankword;
-		  wrdout << fixed << showpoint << setprecision(1);
-		  wrdout << setw(13) << (float)(((float)(rank + (rank+count-1))) / 2);
-		  csvout << setw(7) << (float)(((float)(rank + (rank + count - 1))) / 2) << ",";
-		  csvout << setw(7) << curFreq << ",";
+	while(table[i].freq != -1) 
+    {
+        count = 0;
+        curFreq = table[i].freq;
+        words = new string[numDistinct];
+        while(table[i].freq == curFreq) 
+        {
+            words[count] = table[i].word;
+            count++;
+            i++;
+        }
+        
+        // Here we print out the word frequency, rank, avg rank, and the array of word
+        if (count == 1) 
+        {
+            wrdout << "Words occurring " << curFreq << " times:"
+            << setw((27 - getDigits(curFreq))) << (int)rank;
+            wrdout << fixed << showpoint << setprecision(1);
+            wrdout << setw(13) << rank;
+            csvout << fixed << showpoint << setprecision(1);
+            csvout << setw(7) << rank << ",";
+            csvout << setw(7) << curFreq << ",";
+            csvout << setw(12) << (float)((float)rank*(float)curFreq) << "\n";
+        } 
+        
+        else 
+        {
+            rankword = to_string((int)rank) + "-" + to_string((int)rank + count - 1);
+            wrdout << "Words occurring " << curFreq << " times:" 
+            << setw((27 - getDigits(curFreq))) << rankword;
+            wrdout << fixed << showpoint << setprecision(1);
+            wrdout << setw(13) << (float)(((float)(rank + (rank+count-1))) / 2);
+            csvout << setw(7) << (float)(((float)(rank + (rank + count - 1))) / 2) << ",";
+            csvout << setw(7) << curFreq << ",";
 		  csvout << setw(12) << (float)((((float)(rank + (rank + count - 1))) / 2)*(float)curFreq) << "\n";
-	  }
-	  rank = rank + count;
-	  for (int j = 0; j < count; j++) {
-		  if (j % 5 == 0)
-			  wrdout << "\n";
-		  wrdout << words[j] << setw(14-words[j].length()) << " ";
-	  }
-	  wrdout << "\n\n";
-	}
-	wrdout.close();
-	csvout.close();
+        }
+        
+        rank = rank + count;
+        
+        for (int j = 0; j < count; j++) 
+        {
+            if (j % 5 == 0)
+                wrdout << "\n";
+            wrdout << words[j] << setw(14-words[j].length()) << " ";
+        }
+        
+        wrdout << "\n\n";
+    }
+	
+    wrdout.close();
+    csvout.close();
 }
 
 /**
  * getDigits(int), this function returns the number of digits in (int).
 **/
-int hashTable::getDigits(int num) {
-	int digits = 1, temp = num / 10;
-	while (temp != 0) {
-		digits++;
-		temp = temp / 10;
+int hashTable::getDigits(int num) 
+{
+    int digits = 1, temp = num / 10;
+    while (temp != 0) 
+    {
+        digits++;
+        temp = temp / 10;
 	}
-	return digits;
+	
+    return digits;
 }
 
 /**
  * getNumWords(), returns the number of words in file
 **/
-int hashTable::getNumWords() {
+int hashTable::getNumWords() 
+{
 	return numWords;
 }
 
 /**
  * getNumDistinct(), returns the number of words in the hash table
 **/
-int hashTable::getNumDistinct() {
+int hashTable::getNumDistinct() 
+{
 	return numDistinct;
 }
 
 /**
  * getSize(), returns the size of the hash table
 **/
-int hashTable::getSize() {
+int hashTable::getSize() 
+{
 	return fullSize;
 }
 

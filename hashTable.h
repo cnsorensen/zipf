@@ -16,6 +16,7 @@ class hashTable
 {
     public:
         hashTable();  // constructor
+        hashTable( int );   // constructor based on parameter passed in
         ~hashTable(); // destructor
 		//tableItem* resize(int newSize); // resizes the hash table
 		bool insert(std::string s); // inserts string into hash table
@@ -28,7 +29,8 @@ class hashTable
         int findWord(std::string);  
 		void printHashTable();    
 	
-		struct tableItem {
+		struct tableItem 
+        {
 			std::string word = "";
 			int freq = -1;
 		};
@@ -36,7 +38,7 @@ class hashTable
         tableItem* resize( int newSize );
 
     private:		
-		tableItem *table = nullptr;
+		tableItem* table = nullptr;
         int tableSize = 0, numDistinct = 0, numWords = 0;
 		int fullSize = 1352;
 		friend int freqcomp(tableItem *e1, tableItem *e2);
