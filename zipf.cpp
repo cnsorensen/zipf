@@ -4,12 +4,12 @@
  * Dr. John Weiss
  *
  * Authors: Lucas Carpenter, Chrissy Sorensen
- * 
+ *
  * Compile: g++ zipf.cpp hashTable.cpp -std=c++11 -o zipf
  *
  * Usage: ./zipf <filename>.txt
  *
- **/ 
+ **/
 
 /**
  * Includes
@@ -32,8 +32,8 @@ const char* valid2 = "abcdefghijklmnopqrstuvwxyz'";
 /**
  * Prototypes
 **/
-void fileHandle( char* fileName, hashTable& h );
-string tokenize( string str );
+void fileHandle ( char* fileName, hashTable &h );
+string tokenize ( string str );
 
 /**
  * Functions
@@ -44,55 +44,56 @@ string tokenize( string str );
  * line args and passes them off to other functions or prints
  * out a usage statement
 **/
-int main( int argc, char* argv[] )
+int main ( int argc, char* argv[] )
 {
-	hashTable h;
+    hashTable h;
 
-    switch( argc ) 
+    switch ( argc )
     {
-		//if 2 args, pass to file handling and continue program
-		case 2:
-			fileHandle( argv[1], h );
-		break;
+        //if 2 args, pass to file handling and continue program
+        case 2:
+            fileHandle ( argv[1], h );
+            break;
 
-		//if more or less than 2 args print out usage statement
-		default: 
-			cout << "Usage: zipf filename\n";
-			return 1;
-	}
+        //if more or less than 2 args print out usage statement
+        default:
+            cout << "Usage: zipf filename\n";
+            return 1;
+    }
 
-	return 0;
+    return 0;
 }
 
 /**
  * fileHandle(char*, hashTable&), reads in a file and passes each word of the file
  * onto a tokenize function and inserts the word into a hashtable
 **/
-void fileHandle( char* fileName, hashTable& h ) 
+void fileHandle ( char* fileName, hashTable &h )
 {
     ifstream in;
-    in.open( fileName, ios::in );
-    if( !in ) 
+    in.open ( fileName, ios::in );
+
+    if ( !in )
     {
-	    cout << "Unable to open " << fileName << ". Exiting program.\n";
-	    return;
+        cout << "Unable to open " << fileName << ". Exiting program.\n";
+        return;
     }
 
     string x;
     auto c1 = clock();
 
-    while( in >> x ) 
+    while ( in >> x )
     {
-        x = tokenize( x );
+        x = tokenize ( x );
 
-	    // we would add into a hash table here.. 
-	    // should only need to add in, in the insert function for 
-	    // our hash table it should be able to handle everything else
-	    if( x != "" && !h.insert( x ) ) 
+        // we would add into a hash table here..
+        // should only need to add in, in the insert function for
+        // our hash table it should be able to handle everything else
+        if ( x != "" && !h.insert ( x ) )
         {
-		    cout << "Unable to insert " << x << " into hashtable. Exiting program\n";
-		    return;
-	    }
+            cout << "Unable to insert " << x << " into hashtable. Exiting program\n";
+            return;
+        }
     }
 
     cout << "Finished generating a hash table of size " << h.getSize() << ".\n";
@@ -100,52 +101,52 @@ void fileHandle( char* fileName, hashTable& h )
     cout << "Inserted " << h.getNumDistinct() << " distinct words into the hash table.\n";
     cout << "Compacting and sorting the hash table ... ";
     h.sort();
-    cout << "finished!\n";  
+    cout << "finished!\n";
 
-    auto c2 = clock();  
+    auto c2 = clock();
     auto totalTime = c2 - c1;
     cout << fixed << showpoint;
-    cout << "Elapsed time = " << setprecision(1) << totalTime / ( CLOCKS_PER_SEC / 1000.0 )  <<  " msec.\n";
+    cout << "Elapsed time = " << setprecision ( 1 ) << totalTime / ( CLOCKS_PER_SEC / 1000.0 )  <<  " msec.\n";
 
-    h.printStats( fileName );
+    h.printStats ( fileName );
 }
 
-/** 
+/**
  * tokenize(string), takes in an input string and makes all chars lowercase, then
  * checks for valid chars throughout the string and returns out the newly
  * modified string. This function is a modification of Dr. Weiss's tokenize2
  * code.
 **/
-string tokenize( string str ) 
+string tokenize ( string str )
 {
-	// this will lowercase the string
-	transform( str.begin(), str.end(), str.begin(), ::tolower );
-	
-	// skip delimiters to start of first token
-	int tokenStart = str.find_first_of( valid, 0 );
-	// find next delimiter (i.e., end of first token)
-	int tokenEnd = str.find_first_not_of( valid2, tokenStart );
+    // this will lowercase the string
+    transform ( str.begin(), str.end(), str.begin(), ::tolower );
 
-	// if tokenstart == -1, no valid chars were found in the input string
-	if( tokenStart == -1 ) 
+    // skip delimiters to start of first token
+    int tokenStart = str.find_first_of ( valid, 0 );
+    // find next delimiter (i.e., end of first token)
+    int tokenEnd = str.find_first_not_of ( valid2, tokenStart );
+
+    // if tokenstart == -1, no valid chars were found in the input string
+    if ( tokenStart == -1 )
     {
-		return "";
-	}
+        return "";
+    }
 
-	// since tokenEnd will return a -1 if no invalid char is found
-	// we need to change it to the length of the string
-	if( tokenEnd == -1 ) 
+    // since tokenEnd will return a -1 if no invalid char is found
+    // we need to change it to the length of the string
+    if ( tokenEnd == -1 )
     {
-		tokenEnd = str.size();
-	}
+        tokenEnd = str.size();
+    }
 
-	// remove beginning ' or end ' 
-	if( str[tokenEnd-1] == '\'' )
-		tokenEnd--;
+    // remove beginning ' or end '
+    if ( str[tokenEnd - 1] == '\'' )
+        tokenEnd--;
 
-	// substring our word from tokenStart to tokenEnd
-	str = str.substr( tokenStart, ( tokenEnd - tokenStart ) );
+    // substring our word from tokenStart to tokenEnd
+    str = str.substr ( tokenStart, ( tokenEnd - tokenStart ) );
 
-	//output our newly modified string
-	return str;
+    //output our newly modified string
+    return str;
 }
