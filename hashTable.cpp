@@ -1,6 +1,8 @@
 /* hashTable.cpp */
 #include "hashTable.h"
 
+int stringToInt( const string& );
+
 /**
  * hashTable() Constructor, initializes the list and generates a hash table
  * of size 26*(26*2)
@@ -67,6 +69,8 @@ hashTable::tableItem* hashTable :: resize( int newSize )
 	fullSize = newSize;
 	delete[] table;
 
+    cout << "finished!\n";
+
     return newTable;
 }
 
@@ -91,9 +95,7 @@ bool hashTable :: insert( string s )
     // word's existing spot
 	while( table[currKey].word != "" && table[currKey].word != s )
     { 
-		if( currKey == tableSize )
-            currKey = -1;
-        currKey++;
+		currKey = ( currKey + 1 ) % fullSize;
     }
 
     // new word, fill it into the empty item
@@ -351,7 +353,19 @@ void hashTable :: printHashTable()
  * hashFunc( string ), the function for the hash table that calculates where the
  *  word should be inserted
  **/ 
-int hashTable :: hashFunc( string s )
+inline int hashTable :: hashFunc( string s )
 { 
-    return( ( s[0] - 97 ) * ( fullSize / 26 ) );
+    return (( stringToInt( s ) * s.length() ) % fullSize );
+}
+
+/**
+ *  stringToInt( const string& )
+ **/ 
+int stringToInt( const string& s )
+{
+    int val = 0;
+    for( unsigned int i = 0; i < s.length(); i++ )
+        val += s[i];
+
+    return val;
 }

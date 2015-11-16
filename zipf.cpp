@@ -1,4 +1,17 @@
 /**
+ * Programming Assignment #3: Zipf's Law
+ * CSC300 - Data Structures - Fall 2015
+ * Dr. John Weiss
+ *
+ * Authors: Lucas Carpenter, Chrissy Sorensen
+ * 
+ * Compile: g++ zipf.cpp hashTable.cpp -std=c++11 -o zipf
+ *
+ * Usage: ./zipf <filename>.txt
+ *
+ **/ 
+
+/**
  * Includes
 **/
 #include <iostream>
@@ -27,7 +40,7 @@ string tokenize( string str );
 **/
 
 /**
- * main, the starting point of our program, reads in command
+ * main(int, char*), the starting point of our program, reads in command
  * line args and passes them off to other functions or prints
  * out a usage statement
 **/
@@ -52,7 +65,7 @@ int main( int argc, char* argv[] )
 }
 
 /**
- * fileHandle, reads in a file and passes each word of the file
+ * fileHandle(char*, hashTable&), reads in a file and passes each word of the file
  * onto a tokenize function and inserts the word into a hashtable
 **/
 void fileHandle( char* fileName, hashTable& h ) 
@@ -67,6 +80,7 @@ void fileHandle( char* fileName, hashTable& h )
 
     string x;
     auto c1 = clock();
+
     while( in >> x ) 
     {
         x = tokenize( x );
@@ -87,15 +101,17 @@ void fileHandle( char* fileName, hashTable& h )
     cout << "Compacting and sorting the hash table ... ";
     h.sort();
     cout << "finished!\n";  
+
     auto c2 = clock();  
     auto totalTime = c2 - c1;
-    cout << "Elapsed time = " << totalTime * 1000.0 / CLOCKS_PER_SEC <<  " msec.\n";
-        
+    cout << fixed << showpoint;
+    cout << "Elapsed time = " << setprecision(1) << totalTime / ( CLOCKS_PER_SEC / 1000.0 )  <<  " msec.\n";
+
     h.printStats( fileName );
 }
 
 /** 
- * tokenize, takes in an input string and makes all chars lowercase, then
+ * tokenize(string), takes in an input string and makes all chars lowercase, then
  * checks for valid chars throughout the string and returns out the newly
  * modified string. This function is a modification of Dr. Weiss's tokenize2
  * code.
@@ -126,11 +142,6 @@ string tokenize( string str )
 	// remove beginning ' or end ' 
 	if( str[tokenEnd-1] == '\'' )
 		tokenEnd--;
-/**
- * Did you want to get rid of this?
- **/
-	//if (str[tokenStart] == '\'')
-		//tokenStart++;
 
 	// substring our word from tokenStart to tokenEnd
 	str = str.substr( tokenStart, ( tokenEnd - tokenStart ) );

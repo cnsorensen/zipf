@@ -18,21 +18,21 @@ class hashTable
     public:
         hashTable();  // constructor
         ~hashTable(); // destructor
-		bool insert( std::string s ); // inserts a given word into hash table
+		bool insert( string s ); // inserts a given word into hash table
 		void sort(); // sorts the hash table by frequency
-		void printStats( std::string file ); // prints stats to output files
+		void printStats( string file ); // prints stats to output files
 		int getNumWords(); // returns num of words in file
 		int getNumDistinct(); // returns num of words in hash table
 		int getSize(); // returns size of hash table
-        bool deleteWord( std::string ); // deletes a given word from the hash table
-        int findWord( std::string );  // find a given word in the hash table
+        bool deleteWord( string ); // deletes a given word from the hash table
+        int findWord( string );  // find a given word in the hash table
 		void printHashTable();   // prints hash table to console
-        int hashFunc( std::string ); // hash function to determine where to insert
+        //inline int hashFunc( string ); // hash function to determine where to insert
 
         // element in the hash table
 		struct tableItem 
         {
-			std::string word = "";
+			string word = "";
 			int freq = -1;
 		};
 
@@ -42,15 +42,12 @@ class hashTable
     private:		
 		tableItem* table = nullptr;
         int tableSize = 0, numDistinct = 0, numWords = 0;
-
-        /**
-        * Lucas, can you explain why you chose this number in the comments?
-        **/
-		int fullSize = 1352;
+		int fullSize = 1352; 
+        int getDigits( int num ); // returns the number of digits in a given number
+        inline int hashFunc( string ); // hash function to determine where to insert
 
         friend int findLength( int, const hashTable* ); // finds the number of words
                                                         // with the same frequency
-		int getDigits( int num ); // returns the number of digits in a given number
 };
 
 #endif
