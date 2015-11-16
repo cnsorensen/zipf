@@ -1,5 +1,6 @@
 /* hashTable.h */
-//guard against multiple inclusions
+
+// guard against multiple inclusions
 #ifndef __HASHTABLE_H_
 #define __HASHTABLE_H_
 
@@ -11,7 +12,7 @@
 
 using namespace std;
 
-//class declaration
+// class declaration
 class hashTable
 {
     public:
@@ -37,15 +38,19 @@ class hashTable
 
         tableItem* resize( int newSize ); // creates a new table and rehashes all
                                             // entries into the new table
-
+                                            
     private:		
 		tableItem* table = nullptr;
         int tableSize = 0, numDistinct = 0, numWords = 0;
+
+        /**
+        * Lucas, can you explain why you chose this number in the comments?
+        **/
 		int fullSize = 1352;
-		friend int freqcomp( tableItem*, tableItem* );
-        friend int wordcomp( tableItem*, tableItem*);
-        friend int findLength( int, const hashTable* );
-		int getDigits(int num);
+
+        friend int findLength( int, const hashTable* ); // finds the number of words
+                                                        // with the same frequency
+		int getDigits( int num ); // returns the number of digits in a given number
 };
 
 #endif

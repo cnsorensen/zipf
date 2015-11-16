@@ -28,21 +28,26 @@ hashTable :: ~hashTable()
 /**
  * resize(int), this function is called when the hash table reaches over 75%
  * capacity, it will allocate new space for the hash table and copy over the data.
+ * It then deletes the original table and returns the new one.
 **/
-hashTable :: tableItem* hashTable :: resize( int newSize ) 
+hashTable::tableItem* hashTable :: resize( int newSize ) 
 {
 	cout << "Rehashing to size " << newSize << " ... ";
 
+    // create a new table with the new size given
 	tableItem* newTable = new tableItem[newSize];
     
+    // if it failed to create a new table, output error and exit
 	if( newTable == nullptr ) 
     {
 		cout << "Unable to resize hashtable to size " << newSize << ". Exiting program.\n";
 		exit(1);
 	}
 
+    // rehash items from the original hash table
 	for( int i = 0; i < fullSize; i++ ) 
     {
+        // if it's not an empty element
         if( table[i].freq != -1 )
         {
             int currKey = hashFunc( table[i].word );
@@ -70,8 +75,9 @@ hashTable :: tableItem* hashTable :: resize( int newSize )
  * takes the first letter of the string (a being 0 and z being 25) and multiplies
  * it by the tablesize/26 to ensure the keys are placed evenly throughout the table.
 **/
-bool hashTable :: insert(string s) 
+bool hashTable :: insert( string s ) 
 {
+    // If the table is 75% full, resize into a new table and rehash the items
     if( tableSize >= ( fullSize * 0.75 ) ) 
     {
 		cout << "WARNING: Hash table (size " << fullSize << ") is 75% full!\n";
@@ -81,6 +87,8 @@ bool hashTable :: insert(string s)
 	int startKey = hashFunc( s ); 
     int currKey = startKey;
 
+    // iterate from the starting point finding an empty spot or the given
+    // word's existing spot
 	while( table[currKey].word != "" && table[currKey].word != s )
     { 
 		if( currKey == tableSize )
@@ -88,7 +96,7 @@ bool hashTable :: insert(string s)
         currKey++;
     }
 
-    // New word added
+    // new word, fill it into the empty item
 	if( table[currKey].word != s ) 
     {
 		table[currKey].word = s;
@@ -103,6 +111,11 @@ bool hashTable :: insert(string s)
     return true;
 }
 
+/**
+ * deleteWord( string ), finds the word in the hash table and removes it by
+ * replacing the word and frequency in that item with default. False is
+ * returned if the word was not found in the table.
+ **/ 
 bool hashTable :: deleteWord( string s )
 {
     int i = findWord( s );
@@ -116,6 +129,10 @@ bool hashTable :: deleteWord( string s )
     return false;
 }
 
+/**
+ * findWord( string ), finds a word in the hash table and returns the index
+ * to it. If the word is not found, then -1 is returned.
+ **/ 
 int hashTable :: findWord( string s )
 {
     int startKey = hashFunc( s );
@@ -132,6 +149,10 @@ int hashTable :: findWord( string s )
     return currKey;
 }
 
+/**
+ * findLength( int, const hashTable* ), recursively finds the number of words
+ * with the same frequency in the hash table
+ **/ 
 int findLength( int index, const hashTable* h )
 {
     int length = 0;
@@ -168,7 +189,7 @@ void hashTable :: sort()
         if( table[i].freq == table[i+1].freq )
         {
             // If they have the same frequency, find the number of words with
-            // that frequency. Sort only those in the table
+            // that frequency following it. Sort only those in the table
             int length = findLength( i, this );
             qsort( table + i, length + 1, sizeof( tableItem ), []( const void* a, const void* b )
             {
@@ -326,6 +347,10 @@ void hashTable :: printHashTable()
             cout << table[i].word << " " << table[i].freq << "\n";
 }
 
+/**
+ * hashFunc( string ), the function for the hash table that calculates where the
+ *  word should be inserted
+ **/ 
 int hashTable :: hashFunc( string s )
 { 
     return( ( s[0] - 97 ) * ( fullSize / 26 ) );
