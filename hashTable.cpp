@@ -24,9 +24,7 @@ hashTable :: hashTable()
  * ~hashTable() Destructor, de-allocates memory used for the hash table.
 **/
 hashTable :: ~hashTable()
-{
-    delete[] table;
-}
+{}
 
 /**
  * resize(int), this function is called when the hash table reaches over 75%
@@ -69,7 +67,10 @@ hashTable::tableItem* hashTable :: resize ( int newSize )
     }
 
     fullSize = newSize;
-    delete[] table;
+    if(table != NULL)
+    {
+        delete[] table;
+    }
 
     cout << "finished!\n";
 

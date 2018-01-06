@@ -34,5 +34,5 @@ clean:
 	rm -f *.o *~ core
 
 cleanall:
-	rm -f *.o *~ core zipf
+	rm -f *.o *~ core *.wrd *.csv zipf
 
